@@ -220,6 +220,32 @@ var products={
     {name:'Alpha Lipoic Acid 300mg',comp:'R-Alpha Lipoic Acid',cat:'Antioxidant',form:'Capsule',ico:'&#128998;'},
     {name:'Lycopene + Selenium',comp:'Lycopene 8% + Selenium 200mcg',cat:'Antioxidant',form:'Tablet',ico:'&#127813;'}
   ],
+  surgical:[
+    {name:'Scalpel Handle No.3',comp:'Stainless Steel Reusable',cat:'Instruments',form:'Piece',ico:'&#129657;'},
+    {name:'Scalpel Blade No.22',comp:'High-Carbon Steel Sterile',cat:'Instruments',form:'Box/100',ico:'&#129657;'},
+    {name:'Artery Forceps Curved',comp:'Stainless Steel 16cm',cat:'Instruments',form:'Piece',ico:'&#129657;'},
+    {name:'Tissue Dissecting Forceps',comp:'Stainless Steel Toothed 15cm',cat:'Instruments',form:'Piece',ico:'&#129657;'},
+    {name:'Needle Holder',comp:'Mayo-Hegar Stainless 18cm',cat:'Instruments',form:'Piece',ico:'&#129657;'},
+    {name:'Surgical Scissors',comp:'Mayo Straight Stainless 17cm',cat:'Instruments',form:'Piece',ico:'&#129657;'},
+    {name:'Vicryl Suture 2-0',comp:'Polyglactin 910 Braided Absorbable',cat:'Sutures',form:'Box/12',ico:'&#129523;'},
+    {name:'Chromic Catgut 1-0',comp:'Collagen Absorbable Suture',cat:'Sutures',form:'Box/12',ico:'&#129523;'},
+    {name:'Silk Suture 2-0',comp:'Braided Non-Absorbable Black Silk',cat:'Sutures',form:'Box/12',ico:'&#129523;'},
+    {name:'Prolene Suture 3-0',comp:'Polypropylene Monofilament',cat:'Sutures',form:'Box/12',ico:'&#129523;'},
+    {name:'Nylon Suture 4-0',comp:'Monofilament Non-Absorbable',cat:'Sutures',form:'Box/12',ico:'&#129523;'},
+    {name:'Sterile Gauze Swabs',comp:'Cotton Gauze 10x10cm 12-ply',cat:'Wound Care',form:'Pack/100',ico:'&#129657;'},
+    {name:'Crepe Bandage 10cm',comp:'Elastic Cotton Crepe',cat:'Wound Care',form:'Roll',ico:'&#129657;'},
+    {name:'Adhesive Wound Dressing',comp:'Waterproof Sterile 10x15cm',cat:'Wound Care',form:'Box/50',ico:'&#129657;'},
+    {name:'Povidone Iodine Swabsticks',comp:'Povidone Iodine 10% USP',cat:'Wound Care',form:'Box/25',ico:'&#129657;'},
+    {name:'Disposable Syringe 5ml',comp:'3-Part Luer Lock Sterile',cat:'Disposables',form:'Box/100',ico:'&#128203;'},
+    {name:'Disposable Syringe 10ml',comp:'3-Part Luer Lock Sterile',cat:'Disposables',form:'Box/100',ico:'&#128203;'},
+    {name:'IV Cannula 20G',comp:'Teflon Catheter with Wings',cat:'Disposables',form:'Box/50',ico:'&#128203;'},
+    {name:'Surgical Gloves 7.0',comp:'Latex Sterile Powdered',cat:'Disposables',form:'Pair/Box',ico:'&#128203;'},
+    {name:'Surgical Face Mask',comp:'3-Ply Tie-On Sterile',cat:'OT Supplies',form:'Box/50',ico:'&#128171;'},
+    {name:'Surgical Drape Sheet',comp:'Sterile Non-Woven 150x200cm',cat:'OT Supplies',form:'Piece',ico:'&#128171;'},
+    {name:'Foley Catheter 14Fr',comp:'2-Way Silicone Coated',cat:'OT Supplies',form:'Piece',ico:'&#128171;'},
+    {name:'BP Apparatus Aneroid',comp:'Dial Type with Velcro Cuff',cat:'Diagnostic',form:'Set',ico:'&#129657;'},
+    {name:'Pulse Oximeter',comp:'Fingertip SpO2 & PR Monitor',cat:'Diagnostic',form:'Piece',ico:'&#129657;'}
+  ],
   paediatric:[
     {name:'Amoxicillin 125mg/5ml',comp:'Amoxicillin Trihydrate',cat:'Antibiotic',form:'Syrup',ico:'&#128138;'},
     {name:'Azithromycin 100mg/5ml',comp:'Azithromycin Dihydrate',cat:'Antibiotic',form:'Syrup',ico:'&#128138;'},
@@ -248,8 +274,8 @@ var products={
   ]
 };
 
-var activeCat={pharma:'All',ayurvedic:'All',nutraceutical:'All',paediatric:'All'};
-var activeSearch={pharma:'',ayurvedic:'',nutraceutical:'',paediatric:''};
+var activeCat={pharma:'All',ayurvedic:'All',nutraceutical:'All',paediatric:'All',surgical:'All'};
+var activeSearch={pharma:'',ayurvedic:'',nutraceutical:'',paediatric:'',surgical:''};
 
 function renderProducts(seg){
   var grid=document.getElementById(seg+'-grid');
