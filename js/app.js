@@ -15,18 +15,19 @@ function openModal(product, comp, cat, form, ico){
   var badge=document.getElementById('modalBadge');
   if(product && product!=='General Enquiry' && product!=='Partnership Enquiry'){
     var icoHtml = ico || '&#128138;';
+    var waText = 'Hi, I would like to enquire about: ' + product + (comp ? ' (' + comp + ')' : '');
     var detailHtml = '<div class="modal-prod-card">';
-    detailHtml += '<div class="modal-prod-ico">'+icoHtml+'</div>';
+    detailHtml += '<div class="modal-prod-ico">' + icoHtml + '</div>';
     detailHtml += '<div class="modal-prod-info">';
-    detailHtml += '<div class="modal-prod-name">'+product+'</div>';
-    if(comp) detailHtml += '<div class="modal-prod-comp">'+comp+'</div>';
+    detailHtml += '<div class="modal-prod-name">' + product + '</div>';
+    if(comp) detailHtml += '<div class="modal-prod-comp">' + comp + '</div>';
     detailHtml += '<div class="modal-prod-meta">';
-    if(cat) detailHtml += '<span class="prod-tag">'+cat+'</span>';
-    if(form) detailHtml += '<span class="prod-tag green">'+form+'</span>';
+    if(cat) detailHtml += '<span class="prod-tag">' + cat + '</span>';
+    if(form) detailHtml += '<span class="prod-tag green">' + form + '</span>';
     detailHtml += '</div></div></div>';
-    detailHtml += '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text='+encodeURIComponent('Hi, I would like to enquire about: '+product+(comp?' ('+comp+')':\'\'))+'" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a></div>';
+    detailHtml += '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a></div>';
     badge.innerHTML = detailHtml;
-    document.getElementById('eq-msg').value = 'I would like to enquire about: '+product+(comp?' ('+comp+')':'');
+    document.getElementById('eq-msg').value = waText;
   } else {
     badge.innerHTML='';
     document.getElementById('eq-msg').value='';
@@ -313,6 +314,7 @@ var products={
 
 var activeCat={pharma:'All',ayurvedic:'All',nutraceutical:'All',paediatric:'All',surgical:'All',ortho:'All'};
 var activeSearch={pharma:'',ayurvedic:'',nutraceutical:'',paediatric:'',surgical:'',ortho:''};
+var _lastFiltered = [];
 
 function renderProducts(seg){
   var grid=document.getElementById(seg+'-grid');
@@ -321,21 +323,17 @@ function renderProducts(seg){
   var count=document.getElementById(seg+'-count');
   var cat=activeCat[seg];
   var term=activeSearch[seg].toLowerCase();
-  var filtered=products[seg].filter(function(p){
+  var filtered=(products[seg]||[]).filter(function(p){
     var mc=cat==='All'||p.cat===cat;
     var mt=!term||p.name.toLowerCase().includes(term)||p.comp.toLowerCase().includes(term)||p.cat.toLowerCase().includes(term)||p.form.toLowerCase().includes(term);
     return mc&&mt;
   });
+  _lastFiltered=filtered;
   count.textContent='Showing '+filtered.length+' product'+(filtered.length!==1?'s':'');
   if(!filtered.length){grid.innerHTML='';empty.classList.remove('hidden');return;}
   empty.classList.add('hidden');
-  grid.innerHTML=filtered.map(function(p){
-    var name=(p.name||'').replace(/'/g,'&#39;');
-    var comp=(p.comp||'').replace(/'/g,'&#39;');
-    var cat=(p.cat||'').replace(/'/g,'&#39;');
-    var form=(p.form||'').replace(/'/g,'&#39;');
-    var ico=p.ico||'&#128138;';
-    return '<div class="prod-card" onclick="openModal(\''+name+'\',\''+comp+'\',\''+cat+'\',\''+form+'\',\''+ico+'\')" style="cursor:pointer;">'
+  grid.innerHTML=filtered.map(function(p,i){
+    return '<div class="prod-card" onclick="openProductModal('+i+')" style="cursor:pointer;">'
       +'<div class="prod-card-top">'+p.ico+'</div>'
       +'<div class="prod-body">'
       +'<div class="prod-name">'+p.name+'</div>'
@@ -344,6 +342,12 @@ function renderProducts(seg){
       +'<button class="prod-enquire">Enquire Now &#8594;</button>'
       +'</div></div>';
   }).join('');
+}
+
+function openProductModal(i){
+  var p=_lastFiltered[i];
+  if(!p) return;
+  openModal(p.name, p.comp, p.cat, p.form, p.ico);
 }
 
 function filterProducts(seg,val){
