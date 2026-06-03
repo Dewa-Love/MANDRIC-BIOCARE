@@ -9,6 +9,43 @@ function toggleMenu(){
 }
 
 // ===== MODAL =====
+function generateDesc(product, comp, cat, form){
+  var catDescMap = {
+    'Antibiotic': 'A broad-spectrum antibiotic used to treat bacterial infections.',
+    'Cardiac': 'A cardiovascular medicine used to support heart health and blood pressure management.',
+    'Gynaecology': 'A speciality medicine formulated for women's health and hormonal balance.',
+    'Neurology': 'A neurological medicine used to support brain and nervous system health.',
+    'Gastro': 'A gastroenterological medicine for digestive health and stomach disorders.',
+    'Diabetes': 'An antidiabetic medicine used to manage blood sugar levels effectively.',
+    'Pain Relief': 'A pain reliever and anti-inflammatory medicine for joint, muscle and body pain.',
+    'Bone Health': 'A bone health supplement providing essential calcium and vitamin support.',
+    'Muscle Relaxant': 'A muscle relaxant that relieves spasm, stiffness and muscular pain.',
+    'Supports': 'An orthopaedic support device that provides compression, stability and pain relief.',
+    'Injection': 'A sterile injectable formulation for targeted and rapid therapeutic effect.',
+    'Topical': 'A topical preparation applied directly to the skin for localized pain relief.',
+    'Instruments': 'A precision-grade surgical instrument crafted from high-quality stainless steel.',
+    'Disposables': 'A sterile single-use medical disposable ensuring safe clinical procedures.',
+    'Sutures': 'A surgical suture material used for wound closure and tissue approximation.',
+    'Wound Care': 'A wound care product designed to promote healing and prevent infection.',
+    'OT Supplies': 'A sterile operating theatre supply essential for safe surgical procedures.',
+    'Diagnostic': 'A diagnostic medical device used to monitor patient vitals accurately.',
+    'Nutrition': 'A specialized nutritional supplement formulated for healthy growth and development.',
+    'Vitamins': 'A vitamin supplement to support immunity, growth and overall health.',
+    'Iron & Calcium': 'An iron and calcium supplement to prevent deficiency and support bone development.',
+    'Immunity': 'An immunity booster supplement formulated to strengthen the body's natural defences.',
+    'Cough & Cold': 'A paediatric medicine for relief from cough, cold, fever and allergic symptoms.',
+    'Digestive': 'A digestive health medicine for relief from nausea, constipation and gut disorders.',
+    'Antibiotic': 'A paediatric-grade antibiotic syrup for bacterial infections in children.',
+    'Vitamins': 'A vitamin supplement in drops/syrup form for infants and growing children.',
+    'Skin': 'A dermatological preparation formulated for skin health and topical treatment.',
+    'Liver': 'A hepatoprotective formulation to support liver function and detoxification.',
+    'Joints': 'A formulation for joint pain, inflammation and mobility support.',
+  };
+  var desc = catDescMap[cat] || ('A quality-assured ' + (form||'formulation').toLowerCase() + ' for ' + (cat||'therapeutic').toLowerCase() + ' use, manufactured under GMP-certified standards.');
+  if(comp) desc += ' Active ingredient: ' + comp + '.';
+  return desc;
+}
+
 function openModal(product, comp, cat, form, ico){
   document.getElementById('enquiryForm').style.display='block';
   document.getElementById('successMsg').style.display='none';
@@ -16,6 +53,7 @@ function openModal(product, comp, cat, form, ico){
   if(product && product!=='General Enquiry' && product!=='Partnership Enquiry'){
     var icoHtml = ico || '&#128138;';
     var waText = 'Hi, I would like to enquire about: ' + product + (comp ? ' (' + comp + ')' : '');
+    var desc = generateDesc(product, comp, cat, form);
     var detailHtml = '<div class="modal-prod-card">';
     detailHtml += '<div class="modal-prod-ico">' + icoHtml + '</div>';
     detailHtml += '<div class="modal-prod-info">';
@@ -25,6 +63,7 @@ function openModal(product, comp, cat, form, ico){
     if(cat) detailHtml += '<span class="prod-tag">' + cat + '</span>';
     if(form) detailHtml += '<span class="prod-tag green">' + form + '</span>';
     detailHtml += '</div></div></div>';
+    detailHtml += '<div class="modal-prod-desc"><div class="modal-prod-desc-label">&#128196; About this product</div><div class="modal-prod-desc-text">' + desc + '</div></div>';
     detailHtml += '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a></div>';
     badge.innerHTML = detailHtml;
     document.getElementById('eq-msg').value = waText;
