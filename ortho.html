@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Contact Mandric Biocare Pvt. Ltd. - Reach out for products, partnerships or any queries. ">
-<title>Contact Us | Mandric Biocare Pvt. Ltd.</title>
+<meta name="description" content="Mandric Biocare Orthopaedic Products - Comprehensive range of ortho medicines, implants, supports and rehabilitation products across India.">
+<title>Ortho Products | Mandric Biocare Pvt. Ltd.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -71,9 +71,10 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="pharma.html">Pharma</a>
-        <a href="ayurvedic.html">Ayurvedic</a>
-        <a href="nutraceutical.html">Nutraceutical</a>
-        <a href="contact.html" class="active">Contact Us</a>
+        <a href="ayurvedic.html">Surgical</a>
+        <a href="nutraceutical.html">Paediatric</a>
+        <a href="ortho.html" class="active">Ortho</a>
+        <a href="contact.html">Contact Us</a>
       </div>
       <button class="nav-enquire" onclick="openModal('General Enquiry')">Enquire Now</button>
       <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -83,68 +84,48 @@
     <a href="index.html">&#127968; Home</a>
     <a href="about.html">&#127970; About Us</a>
     <a href="pharma.html">&#128138; Pharma</a>
-    <a href="ayurvedic.html">&#127807; Ayurvedic</a>
-    <a href="nutraceutical.html">&#129514; Nutraceutical</a>
-    <a href="contact.html" class="active">&#128222; Contact Us</a>
+    <a href="ayurvedic.html">&#129657; Surgical</a>
+    <a href="nutraceutical.html">&#128118; Paediatric</a>
+    <a href="ortho.html" class="active">&#129461; Ortho</a>
+    <a href="contact.html">&#128222; Contact Us</a>
     <button class="mobile-enquire" onclick="openModal('General Enquiry');toggleMenu()">Enquire Now &#8594;</button>
   </div>
 </nav>
 
-<!-- ========== CONTACT PAGE CONTENT ========== -->
+<!-- ========== ORTHO PAGE CONTENT ========== -->
 <section class="product-page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Contact Us</span></div>
-    <h1>Contact Mandric Biocare</h1>
-    <p>We&#39;re here for you &mdash; reach out for products, partnerships or any queries.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Ortho Products</span></div>
+    <h1>&#129461; Orthopaedic Products</h1>
+    <p>Comprehensive range of orthopaedic medicines, supports, implants and rehabilitation products for bone, joint and muscle care.</p>
   </div>
 </section>
 
-<section class="contact" style="padding-top:48px;">
+<div class="product-layout">
   <div class="container">
-    <div class="contact-grid">
-      <div>
-        <div class="sec-label">Send Us a Message</div>
-        <div class="sec-title" style="font-size:22px;margin-bottom:22px;">We&#39;ll respond within 24 hours</div>
-        <div class="form-row">
-          <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Your name"></div>
-          <div class="form-group"><label>Phone *</label><input type="tel" placeholder="+91 99199 09009"></div>
+    <div class="product-inner">
+      <div class="filter-sidebar">
+        <h3>&#128269; Filter Products</h3>
+        <input class="filter-search" type="text" placeholder="Search ortho product..." oninput="filterProducts('ortho',this.value)" id="ortho-search">
+        <div class="filter-group">
+          <h4>Category</h4>
+          <span class="filter-tag active" onclick="setCat('ortho','All',this)">All</span>
+          <span class="filter-tag" onclick="setCat('ortho','Pain Relief',this)">Pain Relief</span>
+          <span class="filter-tag" onclick="setCat('ortho','Bone Health',this)">Bone Health</span>
+          <span class="filter-tag" onclick="setCat('ortho','Muscle Relaxant',this)">Muscle Relaxant</span>
+          <span class="filter-tag" onclick="setCat('ortho','Supports',this)">Supports &amp; Braces</span>
+          <span class="filter-tag" onclick="setCat('ortho','Injection',this)">Injection</span>
+          <span class="filter-tag" onclick="setCat('ortho','Topical',this)">Topical</span>
         </div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com"></div>
-        <div class="form-group"><label>Enquiry Type</label>
-          <select>
-            <option>Retailer</option><option>Wholesaler</option><option>Doctor</option>
-            <option>Hospital / Clinic</option><option>Customer</option><option>Distributor</option><option>Jobs</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Message *</label><textarea style="height:130px;" placeholder="Tell us about your requirement..."></textarea></div>
-        <button class="btn btn-blue" style="width:100%;justify-content:center;padding:13px;" onclick="openModal('General Enquiry')">Send Message &#8594;</button>
       </div>
       <div>
-        <div class="contact-info" style="margin-bottom:20px;">
-          <h3>&#128205; Find Us</h3>
-          <div class="info-row"><div class="info-icon">&#128205;</div><div><div class="info-label">Address</div><div class="info-value">West Bengal &mdash; 700 000</div></div></div>
-          <div class="info-row"><div class="info-icon">&#128222;</div><div><div class="info-label">Phone</div><div class="info-value"><a href="tel:+919919909009" style="color:var(--blue);text-decoration:none;">+91 99199 09009</a></div></div></div>
-          <div class="info-row"><div class="info-icon">&#128231;</div><div><div class="info-label">Email</div><div class="info-value"><a href="mailto:mandricbiocare@gmail.com" style="color:var(--blue);text-decoration:none;">mandricbiocare@gmail.com</a></div></div></div>
-          <div class="info-row"><div class="info-icon">&#128172;</div><div><div class="info-label">WhatsApp</div><div class="info-value"><a href="https://wa.me/919919909009" target="_blank" style="color:#25D366;text-decoration:none;">+91 99199 09009</a></div></div></div>
-          <div class="info-row"><div class="info-icon">&#128336;</div><div><div class="info-label">Hours</div><div class="info-value">24/7 &mdash; Always Available</div></div></div>
-        </div>
-        <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);">
-          <iframe
-            src="https://maps.google.com/maps?q=22.606902,88.347436&z=16&output=embed"
-            width="100%"
-            height="280"
-            style="border:0;display:block;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mandric Biocare Location">
-          </iframe>
-        </div>
-        <a href="https://maps.app.goo.gl/YUYtrWSoSFh3zuWm9" target="_blank" class="btn btn-blue" style="width:100%;justify-content:center;margin-top:12px;">&#128506;&#65039; Open in Google Maps</a>
+        <div class="prod-count" id="ortho-count"></div>
+        <div class="product-grid" id="ortho-grid"></div>
+        <div class="no-results hidden" id="ortho-empty"><div class="nri">&#128269;</div><p>No products found. Try a different search or filter.</p></div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -166,5 +147,6 @@
 </footer>
 
 <script src="js/app.js"></script>
+<script>renderProducts('ortho');</script>
 </body>
 </html>

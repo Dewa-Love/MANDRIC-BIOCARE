@@ -271,11 +271,37 @@ var products={
     {name:'PediaSure Growth Formula',comp:'High Protein + DHA + Vitamin Mix',cat:'Nutrition',form:'Powder',ico:'&#129371;'},
     {name:'Immunace Junior',comp:'Vitamin C + Zinc + Elderberry Extract',cat:'Immunity',form:'Syrup',ico:'&#128170;'},
     {name:'BCG Adjuvant Supplement',comp:'Beta-glucan + Vit C + Vit E',cat:'Immunity',form:'Drops',ico:'&#128170;'}
+  ],
+  ortho:[
+    {name:'Diclofenac Sodium 50mg',comp:'Diclofenac Sodium IP',cat:'Pain Relief',form:'Tablet',ico:'&#129461;'},
+    {name:'Etoricoxib 90mg',comp:'Etoricoxib',cat:'Pain Relief',form:'Tablet',ico:'&#129461;'},
+    {name:'Aceclofenac 100mg + Paracetamol 325mg',comp:'Aceclofenac + Paracetamol',cat:'Pain Relief',form:'Tablet',ico:'&#129461;'},
+    {name:'Ibuprofen 400mg + Paracetamol 325mg',comp:'Ibuprofen + Paracetamol',cat:'Pain Relief',form:'Tablet',ico:'&#129461;'},
+    {name:'Tramadol 50mg',comp:'Tramadol HCl',cat:'Pain Relief',form:'Capsule',ico:'&#129461;'},
+    {name:'Ketorolac 10mg',comp:'Ketorolac Tromethamine',cat:'Pain Relief',form:'Tablet',ico:'&#129461;'},
+    {name:'Calcium + Vitamin D3 + Zinc',comp:'Calcium Carbonate 500mg + Vit D3 250IU + Zinc 7.5mg',cat:'Bone Health',form:'Tablet',ico:'&#129460;'},
+    {name:'Calcitriol 0.25mcg',comp:'Calcitriol (Active Vit D3)',cat:'Bone Health',form:'Capsule',ico:'&#129460;'},
+    {name:'Alendronate 70mg',comp:'Alendronate Sodium',cat:'Bone Health',form:'Tablet',ico:'&#129460;'},
+    {name:'Strontium Ranelate 2g',comp:'Strontium Ranelate',cat:'Bone Health',form:'Sachet',ico:'&#129460;'},
+    {name:'Glucosamine 500mg + Chondroitin 400mg',comp:'Glucosamine Sulphate + Chondroitin Sulphate',cat:'Bone Health',form:'Tablet',ico:'&#129460;'},
+    {name:'Thiocolchicoside 4mg',comp:'Thiocolchicoside',cat:'Muscle Relaxant',form:'Tablet',ico:'&#128170;'},
+    {name:'Cyclobenzaprine 5mg',comp:'Cyclobenzaprine HCl',cat:'Muscle Relaxant',form:'Tablet',ico:'&#128170;'},
+    {name:'Baclofen 10mg',comp:'Baclofen IP',cat:'Muscle Relaxant',form:'Tablet',ico:'&#128170;'},
+    {name:'Methocarbamol 500mg',comp:'Methocarbamol',cat:'Muscle Relaxant',form:'Tablet',ico:'&#128170;'},
+    {name:'Knee Cap Support (M)',comp:'Elastic Neoprene Open Patella',cat:'Supports',form:'Piece',ico:'&#129464;'},
+    {name:'Lumbar Sacral Belt',comp:'Contoured LS Belt with Stays',cat:'Supports',form:'Piece',ico:'&#129464;'},
+    {name:'Cervical Collar Soft',comp:'Foam Cervical Collar Medium',cat:'Supports',form:'Piece',ico:'&#129464;'},
+    {name:'Wrist Brace',comp:'Neoprene Thumb Spica Splint',cat:'Supports',form:'Piece',ico:'&#129464;'},
+    {name:'Ankle Support',comp:'Elastic Lace-Up Ankle Brace',cat:'Supports',form:'Piece',ico:'&#129464;'},
+    {name:'Methylprednisolone Inj 40mg',comp:'Methylprednisolone Acetate',cat:'Injection',form:'Vial',ico:'&#128137;'},
+    {name:'Hyaluronic Acid Inj 20mg',comp:'Sodium Hyaluronate 1%',cat:'Injection',form:'Prefilled Syringe',ico:'&#128137;'},
+    {name:'Diclofenac Gel 1%',comp:'Diclofenac Diethylamine 1.16%',cat:'Topical',form:'Tube/30g',ico:'&#129657;'},
+    {name:'Ketoprofen Gel 2.5%',comp:'Ketoprofen',cat:'Topical',form:'Tube/50g',ico:'&#129657;'}
   ]
 };
 
-var activeCat={pharma:'All',ayurvedic:'All',nutraceutical:'All',paediatric:'All',surgical:'All'};
-var activeSearch={pharma:'',ayurvedic:'',nutraceutical:'',paediatric:'',surgical:''};
+var activeCat={pharma:'All',ayurvedic:'All',nutraceutical:'All',paediatric:'All',surgical:'All',ortho:'All'};
+var activeSearch={pharma:'',ayurvedic:'',nutraceutical:'',paediatric:'',surgical:'',ortho:''};
 
 function renderProducts(seg){
   var grid=document.getElementById(seg+'-grid');
