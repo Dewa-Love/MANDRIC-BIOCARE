@@ -313,11 +313,13 @@ footer{background:#0D1B35;color:#fff;padding:56px 0 0;}
 .modal{
   background:#fff;
   border-radius:20px;
-  width:100%;
-  max-width:480px;
-  max-height:92vh;
-  overflow-y:auto;
+  width:min(500px, 94vw);
+  height:min(500px, 94vw);
+  max-height:94vh;
+  overflow:hidden;
   position:relative;
+  display:flex;
+  flex-direction:column;
   box-shadow:0 32px 80px rgba(0,40,120,.22), 0 8px 24px rgba(0,0,0,.15);
   animation:modalIn 0.42s cubic-bezier(0.34,1.56,0.64,1) forwards;
 }
