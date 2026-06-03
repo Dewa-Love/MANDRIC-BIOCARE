@@ -9,13 +9,24 @@ function toggleMenu(){
 }
 
 // ===== MODAL =====
-function openModal(product){
+function openModal(product, comp, cat, form, ico){
   document.getElementById('enquiryForm').style.display='block';
   document.getElementById('successMsg').style.display='none';
   var badge=document.getElementById('modalBadge');
-  if(product&&product!=='General Enquiry'&&product!=='Partnership Enquiry'){
-    badge.innerHTML='<div class="modal-product-badge">&#128138; '+product+'</div>';
-    document.getElementById('eq-msg').value='I would like to enquire about: '+product;
+  if(product && product!=='General Enquiry' && product!=='Partnership Enquiry'){
+    var icoHtml = ico || '&#128138;';
+    var detailHtml = '<div class="modal-prod-card">';
+    detailHtml += '<div class="modal-prod-ico">'+icoHtml+'</div>';
+    detailHtml += '<div class="modal-prod-info">';
+    detailHtml += '<div class="modal-prod-name">'+product+'</div>';
+    if(comp) detailHtml += '<div class="modal-prod-comp">'+comp+'</div>';
+    detailHtml += '<div class="modal-prod-meta">';
+    if(cat) detailHtml += '<span class="prod-tag">'+cat+'</span>';
+    if(form) detailHtml += '<span class="prod-tag green">'+form+'</span>';
+    detailHtml += '</div></div></div>';
+    detailHtml += '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text='+encodeURIComponent('Hi, I would like to enquire about: '+product+(comp?' ('+comp+')':\'\'))+'" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a></div>';
+    badge.innerHTML = detailHtml;
+    document.getElementById('eq-msg').value = 'I would like to enquire about: '+product+(comp?' ('+comp+')':'');
   } else {
     badge.innerHTML='';
     document.getElementById('eq-msg').value='';
@@ -319,14 +330,18 @@ function renderProducts(seg){
   if(!filtered.length){grid.innerHTML='';empty.classList.remove('hidden');return;}
   empty.classList.add('hidden');
   grid.innerHTML=filtered.map(function(p){
-    var name=p.name.replace(/'/g,'&#39;');
-    return '<div class="prod-card">'
+    var name=(p.name||'').replace(/'/g,'&#39;');
+    var comp=(p.comp||'').replace(/'/g,'&#39;');
+    var cat=(p.cat||'').replace(/'/g,'&#39;');
+    var form=(p.form||'').replace(/'/g,'&#39;');
+    var ico=p.ico||'&#128138;';
+    return '<div class="prod-card" onclick="openModal(\''+name+'\',\''+comp+'\',\''+cat+'\',\''+form+'\',\''+ico+'\')" style="cursor:pointer;">'
       +'<div class="prod-card-top">'+p.ico+'</div>'
       +'<div class="prod-body">'
       +'<div class="prod-name">'+p.name+'</div>'
       +'<div class="prod-comp">'+p.comp+'</div>'
       +'<div class="prod-tags"><span class="prod-tag">'+p.cat+'</span><span class="prod-tag green">'+p.form+'</span></div>'
-      +'<button class="prod-enquire" onclick="openModal(\''+name+'\')">Enquire Now &#8594;</button>'
+      +'<button class="prod-enquire">Enquire Now &#8594;</button>'
       +'</div></div>';
   }).join('');
 }
