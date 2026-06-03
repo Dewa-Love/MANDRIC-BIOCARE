@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="About Mandric Biocare Pvt. Ltd. - Our story, mission, values and 8+ years of healthcare excellence in Gorakhpur, UP.">
+  <title>About Us | Mandric Biocare Pvt. Ltd.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- WhatsApp Float -->
+  <a class="whatsapp-btn" href="https://wa.me/919919909009" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="enquiryModal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&#x2715;</button>
+      <h2>Product Enquiry</h2>
+      <p class="modal-sub">Fill in your details and our team will contact you within 24 hours.</p>
+      <div id="modalBadge"></div>
+      <div id="enquiryForm">
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" id="eq-name" placeholder="Your name">
+          </div>
+          <div class="form-group"><label>Phone *</label><input type="tel" id="eq-phone" placeholder="+91 3434343233">
+          </div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" id="eq-email" placeholder="you@email.com"></div>
+        <div class="form-group"><label>Enquiry Type *</label>
+          <select id="eq-type">
+            <option value="">-- Select type --</option>
+            <option>Retailer</option>
+            <option>Wholesaler</option>
+            <option>Doctor</option>
+            <option>Hospital / Clinic</option>
+            <option>Customer</option>
+            <option>Distributor</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea id="eq-msg"
+            placeholder="Tell us about your requirement..."></textarea></div>
+        <button class="btn btn-blue" style="width:100%;justify-content:center;padding:13px;"
+          onclick="submitEnquiry()">Send Enquiry &#8594;</button>
+      </div>
+      <div class="success-msg" id="successMsg">
+        <div class="si">&#x2705;</div>
+        <h3>Enquiry Sent Successfully!</h3>
+        <p>Thank you! Our team will contact you within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>&#128231; <a href="mailto:mandricbiocare@gmail.com">mandricbiocare@gmail.com</a></span>
+        <span>&#128222; <a href="tel:+919919909009">+91 99199 09009</a></span>
+      </div>
+      <div class="topbar-right">
+        <a href="https://wa.me/919919909009" class="social-btn" target="_blank" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a class="logo-wrap" href="index.html">
+          <img id="logo-img" src="logo.png" width="200" height="66" alt="Mandric Biocare Pvt Ltd" style="background:transparent;" />
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html" class="active">About Us</a>
+          <a href="pharma.html">Pharma</a>
+          <a href="ayurvedic.html">Ayurvedic</a>
+          <a href="nutraceutical.html">Nutraceutical</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <button class="nav-enquire" onclick="openModal('General Enquiry')">Enquire Now</button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">&#127968; Home</a>
+      <a href="about.html" class="active">&#127970; About Us</a>
+      <a href="pharma.html">&#128138; Pharma</a>
+      <a href="ayurvedic.html">&#127807; Ayurvedic</a>
+      <a href="nutraceutical.html">&#129514; Nutraceutical</a>
+      <a href="contact.html">&#128222; Contact Us</a>
+      <button class="mobile-enquire" onclick="openModal('General Enquiry');toggleMenu()">Enquire Now &#8594;</button>
+    </div>
+  </nav>
+
+  <!-- ========== ABOUT PAGE CONTENT ========== -->
+  <section class="product-page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>About Us</span></div>
+      <h1>About Mandric Biocare</h1>
+      <p>Our story, mission, values and the journey of 8+ years in healthcare.</p>
+    </div>
+  </section>
+
+  <section class="about-page-section">
+    <div class="container">
+      <div class="sec-label">Who We Are</div>
+      <div class="sec-title">Dedicated to Your Wellbeing</div>
+      <p style="font-size:15px;color:var(--text2);line-height:1.8;max-width:780px;margin-bottom:20px;">Mandric Biocare
+        Pvt. Ltd. is a trusted pharmaceutical company based in Gorakhpur, Uttar Pradesh. Established in 2017 with a
+        mission to make quality healthcare accessible and affordable, we have grown over 8+ years to serve thousands of
+        patients, doctors, pharmacies and hospitals across the region.</p>
+      <p style="font-size:15px;color:var(--text2);line-height:1.8;max-width:780px;margin-bottom:20px;">We specialize in
+        Pharmaceutical, Ayurvedic and Nutraceutical products — covering 700+ products across 15+ therapeutic
+        specialities. Our commitment: quality products, honest pricing, and reliable service.</p>
+      <div class="quote-block" style="max-width:660px;">"Our goal is your wellbeing. We sell all types of products
+        covering your health, beauty and well-being. We stand behind all the products we sell — quality and
+        affordability, always."</div>
+    </div>
+  </section>
+
+  <section class="about-page-section alt">
+    <div class="container">
+      <div class="sec-label">Our Journey</div>
+      <div class="sec-title">Milestones That Define Us</div>
+      <div style="max-width:600px;margin-top:32px;">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2017</div>
+            <div class="timeline-title">Founded in Gorakhpur</div>
+            <div class="timeline-desc">Mandric Biocare Pvt. Ltd. established with a vision to provide quality,
+              affordable pharma products to Eastern UP and beyond.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2018</div>
+            <div class="timeline-title">Expanded to Ayurvedic Segment</div>
+            <div class="timeline-desc">Launched a dedicated Ayurvedic range, bringing classical formulations rooted in
+              ancient wisdom to modern healthcare.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2020</div>
+            <div class="timeline-title">Nutraceutical Range Launched</div>
+            <div class="timeline-desc">Entered the nutraceutical space with a science-backed range of supplements and
+              nutritional wellness products.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2021</div>
+            <div class="timeline-title">ISO Certification Achieved</div>
+            <div class="timeline-desc">Received ISO 9001 certification, cementing our commitment to quality, safety and
+              GMP-compliant processes.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2023</div>
+            <div class="timeline-title">Pan-UP Distribution Network</div>
+            <div class="timeline-desc">Expanded our distribution network to 20+ states with 500+ active distributors
+              across India.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">700+ Product Portfolio &amp; Growing</div>
+            <div class="timeline-desc">Crossed the 700-product milestone — our largest and most diverse range to date,
+              continuing to grow and serve all health needs.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-page-section">
+    <div class="container">
+      <div class="sec-label">Our Values</div>
+      <div class="sec-title">What Drives Us Every Day</div>
+      <div class="str-grid" style="margin-top:28px;">
+        <div class="str-card">
+          <div class="str-icon blue">&#9989;</div>
+          <div>
+            <div class="str-title">Quality First</div>
+            <div class="str-desc">Every product goes through rigorous quality checks before reaching you. No
+              compromises, ever.</div>
+          </div>
+        </div>
+        <div class="str-card">
+          <div class="str-icon orange">&#129309;</div>
+          <div>
+            <div class="str-title">Trust &amp; Integrity</div>
+            <div class="str-desc">Transparent business practices, honest pricing and ethical conduct in everything we
+              do.</div>
+          </div>
+        </div>
+        <div class="str-card">
+          <div class="str-icon blue">&#9975;</div>
+          <div>
+            <div class="str-title">Accessibility</div>
+            <div class="str-desc">Making quality healthcare affordable and accessible to every patient, regardless of
+              income.</div>
+          </div>
+        </div>
+        <div class="str-card">
+          <div class="str-icon orange">&#127807;</div>
+          <div>
+            <div class="str-title">Innovation</div>
+            <div class="str-desc">Constantly upgrading our product range and processes to meet evolving healthcare
+              needs.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="enquiry-cta">
+    <div class="container">
+      <h2>Want to Partner With Us?</h2>
+      <p>Distributors, retailers and healthcare professionals — let's connect.</p>
+      <div class="enquiry-cta-btns">
+        <button class="btn-white" onclick="openModal('Partnership Enquiry')">Send Enquiry</button>
+        <a href="tel:+919919909009" class="btn-white-outline">&#128222; Call: +91 99199 09009</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-wrap"><img id="logo-footer" src="logo.png" alt="Mandric Biocare"></div>
+          <p>Mandric Biocare Pvt. Ltd. &mdash; Trusted pharmaceutical partner in Gorakhpur, UP, dedicated to quality
+            healthcare for all.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About Us</a><a
+            href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4><a href="pharma.html">Pharmaceutical</a><a href="ayurvedic.html">Ayurvedic</a><a
+            href="nutraceutical.html">Nutraceutical</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4><a href="tel:+919919909009">+91 99199 09009</a><a
+            href="mailto:mandricbiocare@gmail.com">mandricbiocare@gmail.com</a><a href="https://wa.me/919919909009"
+            target="_blank">WhatsApp Us</a><a>Gorakhpur, UP</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mandric Biocare Pvt. Ltd. All rights reserved. | This website is for healthcare professionals
+          only.</p>
+        <div class="footer-socials"><a href="https://wa.me/919919909009" class="fs" target="_blank"
+            aria-label="WhatsApp"><svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg></a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Contact Mandric Biocare Pvt. Ltd. - Reach out for products, partnerships or any queries. Located in Gorakhpur, Uttar Pradesh.">
+<title>Contact Us | Mandric Biocare Pvt. Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- WhatsApp Float -->
+<a class="whatsapp-btn" href="https://wa.me/919919909009" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="enquiryModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&#x2715;</button>
+    <h2>Product Enquiry</h2>
+    <p class="modal-sub">Fill in your details and our team will contact you within 24 hours.</p>
+    <div id="modalBadge"></div>
+    <div id="enquiryForm">
+      <div class="form-row">
+        <div class="form-group"><label>Full Name *</label><input type="text" id="eq-name" placeholder="Your name"></div>
+        <div class="form-group"><label>Phone *</label><input type="tel" id="eq-phone" placeholder="+91 99199 09009"></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" id="eq-email" placeholder="you@email.com"></div>
+      <div class="form-group"><label>Enquiry Type *</label>
+        <select id="eq-type">
+          <option value="">-- Select type --</option>
+          <option>Retailer</option><option>Wholesaler</option><option>Doctor</option>
+          <option>Hospital / Clinic</option><option>Customer</option><option>Distributor</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea id="eq-msg" placeholder="Tell us about your requirement..."></textarea></div>
+      <button class="btn btn-blue" style="width:100%;justify-content:center;padding:13px;" onclick="submitEnquiry()">Send Enquiry &#8594;</button>
+    </div>
+    <div class="success-msg" id="successMsg">
+      <div class="si">&#x2705;</div>
+      <h3>Enquiry Sent Successfully!</h3>
+      <p>Thank you! Our team will contact you within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span>&#128231; <a href="mailto:mandricbiocare@gmail.com">mandricbiocare@gmail.com</a></span>
+      <span>&#128222; <a href="tel:+919919909009">+91 99199 09009</a></span>
+    </div>
+    <div class="topbar-right">
+      <a href="https://wa.me/919919909009" class="social-btn" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a class="logo-wrap" href="index.html"><img id="logo-img" src="logo.png" width="200" height="66" alt="Mandric Biocare Pvt Ltd" style="background:transparent;" /></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="pharma.html">Pharma</a>
+        <a href="ayurvedic.html">Ayurvedic</a>
+        <a href="nutraceutical.html">Nutraceutical</a>
+        <a href="contact.html" class="active">Contact Us</a>
+      </div>
+      <button class="nav-enquire" onclick="openModal('General Enquiry')">Enquire Now</button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">&#127968; Home</a>
+    <a href="about.html">&#127970; About Us</a>
+    <a href="pharma.html">&#128138; Pharma</a>
+    <a href="ayurvedic.html">&#127807; Ayurvedic</a>
+    <a href="nutraceutical.html">&#129514; Nutraceutical</a>
+    <a href="contact.html" class="active">&#128222; Contact Us</a>
+    <button class="mobile-enquire" onclick="openModal('General Enquiry');toggleMenu()">Enquire Now &#8594;</button>
+  </div>
+</nav>
+
+<!-- ========== CONTACT PAGE CONTENT ========== -->
+<section class="product-page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Contact Us</span></div>
+    <h1>Contact Mandric Biocare</h1>
+    <p>We&#39;re here for you &mdash; reach out for products, partnerships or any queries.</p>
+  </div>
+</section>
+
+<section class="contact" style="padding-top:48px;">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="sec-label">Send Us a Message</div>
+        <div class="sec-title" style="font-size:22px;margin-bottom:22px;">We&#39;ll respond within 24 hours</div>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Your name"></div>
+          <div class="form-group"><label>Phone *</label><input type="tel" placeholder="+91 99199 09009"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+        <div class="form-group"><label>Enquiry Type</label>
+          <select>
+            <option>Retailer</option><option>Wholesaler</option><option>Doctor</option>
+            <option>Hospital / Clinic</option><option>Customer</option><option>Distributor</option><option>Jobs</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message *</label><textarea style="height:130px;" placeholder="Tell us about your requirement..."></textarea></div>
+        <button class="btn btn-blue" style="width:100%;justify-content:center;padding:13px;" onclick="openModal('General Enquiry')">Send Message &#8594;</button>
+      </div>
+      <div>
+        <div class="contact-info" style="margin-bottom:20px;">
+          <h3>&#128205; Find Us</h3>
+          <div class="info-row"><div class="info-icon">&#128205;</div><div><div class="info-label">Address</div><div class="info-value">Gorakhpur, Uttar Pradesh &mdash; 273001</div></div></div>
+          <div class="info-row"><div class="info-icon">&#128222;</div><div><div class="info-label">Phone</div><div class="info-value"><a href="tel:+919919909009" style="color:var(--blue);text-decoration:none;">+91 99199 09009</a></div></div></div>
+          <div class="info-row"><div class="info-icon">&#128231;</div><div><div class="info-label">Email</div><div class="info-value"><a href="mailto:mandricbiocare@gmail.com" style="color:var(--blue);text-decoration:none;">mandricbiocare@gmail.com</a></div></div></div>
+          <div class="info-row"><div class="info-icon">&#128172;</div><div><div class="info-label">WhatsApp</div><div class="info-value"><a href="https://wa.me/919919909009" target="_blank" style="color:#25D366;text-decoration:none;">+91 99199 09009</a></div></div></div>
+          <div class="info-row"><div class="info-icon">&#128336;</div><div><div class="info-label">Hours</div><div class="info-value">24/7 &mdash; Always Available</div></div></div>
+        </div>
+        <div style="border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);">
+          <iframe
+            src="https://maps.google.com/maps?q=26.7905498,83.3550079&z=16&output=embed"
+            width="100%"
+            height="280"
+            style="border:0;display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mandric Biocare Location">
+          </iframe>
+        </div>
+        <a href="https://maps.app.goo.gl/uToCMXsSK7WGYkPaA" target="_blank" class="btn btn-blue" style="width:100%;justify-content:center;margin-top:12px;">&#128506;&#65039; Open in Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-wrap"><img id="logo-footer" src="logo.png" alt="Mandric Biocare"></div>
+        <p>Mandric Biocare Pvt. Ltd. &mdash; Trusted pharmaceutical partner in Gorakhpur, UP, dedicated to quality healthcare for all.</p>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
+      <div class="footer-col"><h4>Products</h4><a href="pharma.html">Pharmaceutical</a><a href="ayurvedic.html">Ayurvedic</a><a href="nutraceutical.html">Nutraceutical</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:+919919909009">+91 99199 09009</a><a href="mailto:mandricbiocare@gmail.com">mandricbiocare@gmail.com</a><a href="https://wa.me/919919909009" target="_blank">WhatsApp Us</a><a>Gorakhpur, UP</a></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Mandric Biocare Pvt. Ltd. All rights reserved. | This website is for healthcare professionals only.</p>
+      <div class="footer-socials"><a href="https://wa.me/919919909009" class="fs" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
