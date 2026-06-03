@@ -48,52 +48,49 @@ function generateDesc(product, comp, cat, form){
 
 function openModal(product, comp, cat, form, ico){
   var isProduct = product && product!=='General Enquiry' && product!=='Partnership Enquiry';
-  var modal = document.getElementById('enquiryModal');
-  var badge = document.getElementById('modalBadge');
+  var overlay = document.getElementById('enquiryModal');
+  var badge   = document.getElementById('modalBadge');
 
-  // Reset animation by removing and re-adding open class
-  modal.classList.remove('open');
-  void modal.offsetWidth;
+  // Reset animation
+  overlay.classList.remove('open');
+  void overlay.offsetWidth;
 
-  document.getElementById('enquiryForm').style.display='block';
-  document.getElementById('successMsg').style.display='none';
+  document.getElementById('enquiryForm').style.display = 'block';
+  document.getElementById('successMsg').style.display  = 'none';
 
-  // Build modal header
-  var modalEl = modal.querySelector('.modal');
-  var headerEl = modalEl ? modalEl.querySelector('.modal-header') : null;
-  var bodyEl = modalEl ? modalEl.querySelector('.modal-body') : null;
-
-  if(isProduct && headerEl && bodyEl){
+  if(isProduct){
     var icoHtml = ico || '&#128138;';
-    var waText = 'Hi, I would like to enquire about: ' + product + (comp ? ' (' + comp + ')' : '');
-    var desc = generateDesc(product, comp, cat, form);
+    var waText  = 'Hi, I would like to enquire about: ' + product + (comp ? ' (' + comp + ')' : '');
+    var desc    = generateDesc(product, comp, cat, form);
 
-    // Populate header
-    headerEl.querySelector('h2').textContent = 'Product Enquiry';
-    headerEl.querySelector('.modal-sub').textContent = 'Get in touch with our team within 24 hours.';
     badge.innerHTML =
       '<div class="modal-prod-hero">'
-      + '<div class="modal-prod-ico">' + icoHtml + '</div>'
-      + '<div class="modal-prod-info">'
-      + '<div class="modal-prod-name">' + product + '</div>'
-      + (comp ? '<div class="modal-prod-comp">' + comp + '</div>' : '')
-      + '<div class="modal-prod-meta">'
-      + (cat ? '<span class="prod-tag">' + cat + '</span>' : '')
-      + (form ? '<span class="prod-tag green">' + form + '</span>' : '')
-      + '</div></div></div>'
-      + '<div class="modal-prod-desc">'
-      + '<div class="modal-prod-desc-label">&#128196; About this product</div>'
-      + '<div class="modal-prod-desc-text">' + desc + '</div>'
+        + '<div class="modal-prod-ico">' + icoHtml + '</div>'
+        + '<div class="modal-prod-info">'
+          + '<div class="modal-prod-name">' + product + '</div>'
+          + (comp ? '<div class="modal-prod-comp">' + comp + '</div>' : '')
+          + '<div class="modal-prod-meta">'
+            + (cat  ? '<span class="prod-tag">'       + cat  + '</span>' : '')
+            + (form ? '<span class="prod-tag green">' + form + '</span>' : '')
+          + '</div>'
+        + '</div>'
       + '</div>'
-      + '<div class="modal-prod-wa"><a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a></div>';
+      + '<div class="modal-prod-desc">'
+        + '<div class="modal-prod-desc-label">&#128196; About this product</div>'
+        + '<div class="modal-prod-desc-text">' + desc + '</div>'
+      + '</div>'
+      + '<div class="modal-prod-wa">'
+        + '<a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a>'
+      + '</div>';
 
     document.getElementById('eq-msg').value = waText;
   } else {
-    badge.innerHTML='';
-    document.getElementById('eq-msg').value='';
+    badge.innerHTML = '';
+    document.getElementById('eq-msg').value = '';
   }
-  modal.classList.add('open');
-  document.body.style.overflow='hidden';
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal(){
