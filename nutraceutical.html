@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mandric Biocare Nutraceutical Products - Science-backed supplements and nutritional products for daily wellness, immunity and vitality.">
-<title>Nutraceutical Products | Mandric Biocare Pvt. Ltd.</title>
+<meta name="description" content="Mandric Biocare Paediatric Products - Safe, effective medicines and supplements specially formulated for infants, children and adolescents.">
+<title>Paediatric Products | Mandric Biocare Pvt. Ltd.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -90,12 +90,12 @@
   </div>
 </nav>
 
-<!-- ========== NUTRACEUTICAL PAGE CONTENT ========== -->
+<!-- ========== PAEDIATRICS PAGE CONTENT ========== -->
 <section class="product-page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Nutraceutical Products</span></div>
-    <h1>&#129514; Nutraceutical Products</h1>
-    <p>Science-backed supplements and nutritional products for daily wellness, immunity and vitality.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>&#8250;</span><span>Paediatric Products</span></div>
+    <h1>&#128118; Paediatric Products</h1>
+    <p>Safe, effective medicines and supplements specially formulated for infants, children and adolescents.</p>
   </div>
 </section>
 
@@ -104,22 +104,23 @@
     <div class="product-inner">
       <div class="filter-sidebar">
         <h3>&#128269; Filter Products</h3>
-        <input class="filter-search" type="text" placeholder="Search supplement..." oninput="filterProducts('nutraceutical',this.value)" id="nutraceutical-search">
+        <input class="filter-search" type="text" placeholder="Search paediatric product..." oninput="filterProducts('paediatric',this.value)" id="paediatric-search">
         <div class="filter-group">
           <h4>Category</h4>
-          <span class="filter-tag active" onclick="setCat('nutraceutical','All',this)">All</span>
-          <span class="filter-tag" onclick="setCat('nutraceutical','Vitamins',this)">Vitamins</span>
-          <span class="filter-tag" onclick="setCat('nutraceutical','Minerals',this)">Minerals</span>
-          <span class="filter-tag" onclick="setCat('nutraceutical','Protein',this)">Protein</span>
-          <span class="filter-tag" onclick="setCat('nutraceutical','Immunity',this)">Immunity</span>
-          <span class="filter-tag" onclick="setCat('nutraceutical','Bone Health',this)">Bone Health</span>
-          <span class="filter-tag" onclick="setCat('nutraceutical','Antioxidant',this)">Antioxidant</span>
+          <span class="filter-tag active" onclick="setCat('paediatric','All',this)">All</span>
+          <span class="filter-tag" onclick="setCat('paediatric','Nutrition',this)">Nutrition</span>
+          <span class="filter-tag" onclick="setCat('paediatric','Vitamins',this)">Vitamins</span>
+          <span class="filter-tag" onclick="setCat('paediatric','Antibiotic',this)">Antibiotic</span>
+          <span class="filter-tag" onclick="setCat('paediatric','Immunity',this)">Immunity</span>
+          <span class="filter-tag" onclick="setCat('paediatric','Cough & Cold',this)">Cough &amp; Cold</span>
+          <span class="filter-tag" onclick="setCat('paediatric','Digestive',this)">Digestive</span>
+          <span class="filter-tag" onclick="setCat('paediatric','Iron & Calcium',this)">Iron &amp; Calcium</span>
         </div>
       </div>
       <div>
-        <div class="prod-count" id="nutraceutical-count"></div>
-        <div class="product-grid" id="nutraceutical-grid"></div>
-        <div class="no-results hidden" id="nutraceutical-empty"><div class="nri">&#128269;</div><p>No products found. Try a different search or filter.</p></div>
+        <div class="prod-count" id="paediatric-count"></div>
+        <div class="product-grid" id="paediatric-grid"></div>
+        <div class="no-results hidden" id="paediatric-empty"><div class="nri">&#128269;</div><p>No products found. Try a different search or filter.</p></div>
       </div>
     </div>
   </div>
@@ -145,6 +146,6 @@
 </footer>
 
 <script src="js/app.js"></script>
-<script>renderProducts('nutraceutical');</script>
+<script>renderProducts('paediatric');</script>
 </body>
 </html>

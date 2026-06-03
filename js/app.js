@@ -219,11 +219,37 @@ var products={
     {name:'CoQ10 100mg',comp:'Coenzyme Q10 (Ubiquinone)',cat:'Antioxidant',form:'Softgel',ico:'&#128155;'},
     {name:'Alpha Lipoic Acid 300mg',comp:'R-Alpha Lipoic Acid',cat:'Antioxidant',form:'Capsule',ico:'&#128998;'},
     {name:'Lycopene + Selenium',comp:'Lycopene 8% + Selenium 200mcg',cat:'Antioxidant',form:'Tablet',ico:'&#127813;'}
+  ],
+  paediatric:[
+    {name:'Amoxicillin 125mg/5ml',comp:'Amoxicillin Trihydrate',cat:'Antibiotic',form:'Syrup',ico:'&#128138;'},
+    {name:'Azithromycin 100mg/5ml',comp:'Azithromycin Dihydrate',cat:'Antibiotic',form:'Syrup',ico:'&#128138;'},
+    {name:'Cefixime 50mg/5ml',comp:'Cefixime Trihydrate',cat:'Antibiotic',form:'Syrup',ico:'&#128138;'},
+    {name:'Paracetamol 125mg/5ml',comp:'Paracetamol (Acetaminophen)',cat:'Cough & Cold',form:'Syrup',ico:'&#127909;'},
+    {name:'Ibuprofen 100mg/5ml',comp:'Ibuprofen IP',cat:'Cough & Cold',form:'Syrup',ico:'&#127909;'},
+    {name:'Cetirizine 5mg/5ml',comp:'Cetirizine Dihydrochloride',cat:'Cough & Cold',form:'Syrup',ico:'&#127909;'},
+    {name:'Levosalbutamol + Ambroxol',comp:'Levosalbutamol 1mg + Ambroxol 15mg/5ml',cat:'Cough & Cold',form:'Syrup',ico:'&#127798;'},
+    {name:'Chlorpheniramine Maleate',comp:'Chlorpheniramine Maleate 2mg/5ml',cat:'Cough & Cold',form:'Syrup',ico:'&#127798;'},
+    {name:'Zinc Sulphate 20mg/5ml',comp:'Zinc Sulphate Monohydrate',cat:'Nutrition',form:'Syrup',ico:'&#11088;'},
+    {name:'Ferrous Ascorbate + Folic Acid',comp:'Ferrous Ascorbate 30mg + Folic Acid 0.5mg',cat:'Iron & Calcium',form:'Syrup',ico:'&#129386;'},
+    {name:'Calcium + Vitamin D3',comp:'Calcium Carbonate 250mg + Vit D3 400IU',cat:'Iron & Calcium',form:'Syrup',ico:'&#129386;'},
+    {name:'Ferrous Sulfate Drops',comp:'Ferrous Sulphate 25mg/ml',cat:'Iron & Calcium',form:'Drops',ico:'&#129386;'},
+    {name:'Multivitamin Drops',comp:'Vitamins A, C, D3, B-Complex',cat:'Vitamins',form:'Drops',ico:'&#127774;'},
+    {name:'Vitamin D3 400IU Drops',comp:'Cholecalciferol 400IU/ml',cat:'Vitamins',form:'Drops',ico:'&#127774;'},
+    {name:'Vitamin C 100mg',comp:'Ascorbic Acid',cat:'Vitamins',form:'Chewable Tablet',ico:'&#127774;'},
+    {name:'Vitamin B12 + Folic Acid',comp:'Methylcobalamin 500mcg + Folic Acid 1.5mg',cat:'Vitamins',form:'Syrup',ico:'&#127774;'},
+    {name:'Probiotic Drops',comp:'Lactobacillus reuteri 100M CFU/5drops',cat:'Digestive',form:'Drops',ico:'&#129514;'},
+    {name:'Lactulose Solution',comp:'Lactulose 3.35g/5ml',cat:'Digestive',form:'Syrup',ico:'&#129514;'},
+    {name:'Ondansetron 2mg/5ml',comp:'Ondansetron HCl',cat:'Digestive',form:'Syrup',ico:'&#129514;'},
+    {name:'ORS + Zinc Sachets',comp:'WHO-ORS + Zinc Gluconate 20mg',cat:'Digestive',form:'Powder',ico:'&#129514;'},
+    {name:'Protein Powder (Paediatric)',comp:'Whey Protein + Essential Amino Acids',cat:'Nutrition',form:'Powder',ico:'&#129371;'},
+    {name:'PediaSure Growth Formula',comp:'High Protein + DHA + Vitamin Mix',cat:'Nutrition',form:'Powder',ico:'&#129371;'},
+    {name:'Immunace Junior',comp:'Vitamin C + Zinc + Elderberry Extract',cat:'Immunity',form:'Syrup',ico:'&#128170;'},
+    {name:'BCG Adjuvant Supplement',comp:'Beta-glucan + Vit C + Vit E',cat:'Immunity',form:'Drops',ico:'&#128170;'}
   ]
 };
 
-var activeCat={pharma:'All',ayurvedic:'All',nutraceutical:'All'};
-var activeSearch={pharma:'',ayurvedic:'',nutraceutical:''};
+var activeCat={pharma:'All',ayurvedic:'All',nutraceutical:'All',paediatric:'All'};
+var activeSearch={pharma:'',ayurvedic:'',nutraceutical:'',paediatric:''};
 
 function renderProducts(seg){
   var grid=document.getElementById(seg+'-grid');
