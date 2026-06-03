@@ -294,10 +294,9 @@ footer{background:#0D1B35;color:#fff;padding:56px 0 0;}
 
 /* MODAL */
 /* ===== MODAL — PREMIUM SQUARE REDESIGN ===== */
-@keyframes modalIn{
-  0%{opacity:0;transform:perspective(800px) rotateX(-20deg) translateY(-40px) scale(0.9);}
-  60%{opacity:1;transform:perspective(800px) rotateX(4deg) translateY(4px) scale(1.01);}
-  100%{opacity:1;transform:perspective(800px) rotateX(0deg) translateY(0) scale(1);}
+@keyframes gb-popup-scale-blur{
+  0%{opacity:0;transform-origin:50% 50%;transform:scale(2,2);filter:blur(90px);}
+  100%{opacity:1;transform-origin:50% 50%;transform:scale(1,1);filter:blur(0px);}
 }
 @keyframes overlayIn{0%{opacity:0;}100%{opacity:1;}}
 
@@ -313,22 +312,22 @@ footer{background:#0D1B35;color:#fff;padding:56px 0 0;}
 .modal{
   background:#fff;
   border-radius:20px;
-  width:min(500px, 94vw);
-  height:min(500px, 94vw);
-  max-height:94vh;
+  width:min(800px, 96vw);
+  height:min(800px, 96vw);
+  max-height:96vh;
   overflow:hidden;
   position:relative;
   display:flex;
   flex-direction:column;
-  box-shadow:0 32px 80px rgba(0,40,120,.22), 0 8px 24px rgba(0,0,0,.15);
-  animation:modalIn 0.42s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  box-shadow:0 40px 100px rgba(0,40,120,.28), 0 12px 32px rgba(0,0,0,.18);
+  animation:gb-popup-scale-blur 1s both;
 }
 .modal-close{
-  position:absolute;top:14px;right:14px;
-  background:rgba(255,255,255,.25);
+  position:absolute;top:18px;right:18px;
+  background:rgba(255,255,255,.22);
   border:none;border-radius:50%;
-  width:34px;height:34px;
-  font-size:17px;cursor:pointer;
+  width:40px;height:40px;
+  font-size:19px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   color:#fff;z-index:2;
   transition:background .2s, transform .2s;
@@ -337,29 +336,31 @@ footer{background:#0D1B35;color:#fff;padding:56px 0 0;}
 .modal-header{
   background:linear-gradient(135deg,#1a3a8f 0%,#1565C0 60%,#0288D1 100%);
   border-radius:20px 20px 0 0;
-  padding:28px 24px 24px;
-  position:relative;overflow:hidden;
+  padding:32px 40px 28px;
+  position:relative;overflow:hidden;flex-shrink:0;
 }
 .modal-header::before{
   content:'';position:absolute;inset:0;
   background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-.modal-header h2{font-size:18px;font-weight:700;color:#fff;margin-bottom:2px;position:relative;}
-.modal .modal-sub{font-size:12px;color:rgba(255,255,255,.75);margin-bottom:0;position:relative;}
-.modal-body{padding:20px 24px 24px;}
-.modal-product-badge{display:inline-block;background:var(--blue-light);color:var(--blue2);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:18px;}
-.modal-prod-card{display:flex;align-items:center;gap:14px;background:var(--blue-light);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:16px;}
-.modal-prod-ico{font-size:36px;line-height:1;flex-shrink:0;}
+.modal-header h2{font-size:26px;font-weight:800;color:#fff;margin-bottom:6px;position:relative;}
+.modal .modal-sub{font-size:15px;color:rgba(255,255,255,.78);margin-bottom:0;position:relative;}
+.modal-body{padding:28px 40px 36px;flex:1;overflow-y:auto;}
+.modal-product-badge{display:inline-block;background:var(--blue-light);color:var(--blue2);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:20px;}
+.modal-prod-hero{display:flex;align-items:center;gap:22px;margin-bottom:22px;position:relative;z-index:1;}
+.modal-prod-ico{width:82px;height:82px;border-radius:20px;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:44px;flex-shrink:0;}
 .modal-prod-info{flex:1;min-width:0;}
-.modal-prod-name{font-size:15px;font-weight:700;color:var(--blue2);margin-bottom:4px;line-height:1.3;}
-.modal-prod-comp{font-size:11px;color:var(--text2);margin-bottom:8px;line-height:1.5;}
-.modal-prod-meta{display:flex;gap:6px;flex-wrap:wrap;}
-.modal-prod-wa{margin-bottom:16px;}
-.modal-prod-desc{background:#f8faff;border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:16px;}
-.modal-prod-desc-label{font-size:11px;font-weight:700;color:var(--blue2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
-.modal-prod-desc-text{font-size:12.5px;color:var(--text);line-height:1.7;}
-.btn-wa-quick{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s;}
-.btn-wa-quick:hover{background:#1ebe57;}
+.modal-prod-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;line-height:1.3;}
+.modal-prod-comp{font-size:14px;color:rgba(255,255,255,.82);margin-bottom:12px;line-height:1.5;}
+.modal-prod-meta{display:flex;gap:8px;flex-wrap:wrap;}
+.modal-prod-meta .prod-tag{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:12px;padding:4px 12px;}
+.modal-prod-meta .prod-tag.green{background:rgba(46,213,115,.25);color:#b8ffd2;border-color:rgba(46,213,115,.4);}
+.modal-prod-wa{margin-bottom:22px;}
+.modal-prod-desc{background:linear-gradient(135deg,#f0f6ff,#e8f0fe);border-left:5px solid var(--blue);border-radius:0 14px 14px 0;padding:18px 22px;margin-bottom:22px;}
+.modal-prod-desc-label{font-size:12px;font-weight:800;color:var(--blue2);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.modal-prod-desc-text{font-size:14px;color:#334;line-height:1.8;}
+.btn-wa-quick{display:flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#25D366,#1ebe57);color:#fff;padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;}
+.btn-wa-quick:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,.5);}
 .success-msg{display:none;text-align:center;padding:24px 0;}
 .success-msg .si{font-size:54px;margin-bottom:12px;}
 .success-msg h3{font-size:18px;font-weight:700;margin-bottom:6px;}
