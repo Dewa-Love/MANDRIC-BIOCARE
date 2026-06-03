@@ -13,7 +13,7 @@ function generateDesc(product, comp, cat, form){
   var catDescMap = {
     'Antibiotic': 'A broad-spectrum antibiotic used to treat bacterial infections.',
     'Cardiac': 'A cardiovascular medicine used to support heart health and blood pressure management.',
-    'Gynaecology': 'A speciality medicine formulated for women's health and hormonal balance.',
+    'Gynaecology': 'A speciality medicine formulated for women&#39;s health and hormonal balance.',
     'Neurology': 'A neurological medicine used to support brain and nervous system health.',
     'Gastro': 'A gastroenterological medicine for digestive health and stomach disorders.',
     'Diabetes': 'An antidiabetic medicine used to manage blood sugar levels effectively.',
@@ -32,7 +32,7 @@ function generateDesc(product, comp, cat, form){
     'Nutrition': 'A specialized nutritional supplement formulated for healthy growth and development.',
     'Vitamins': 'A vitamin supplement to support immunity, growth and overall health.',
     'Iron & Calcium': 'An iron and calcium supplement to prevent deficiency and support bone development.',
-    'Immunity': 'An immunity booster supplement formulated to strengthen the body's natural defences.',
+    'Immunity': 'An immunity booster supplement formulated to strengthen the body&#39;s natural defences.',
     'Cough & Cold': 'A paediatric medicine for relief from cough, cold, fever and allergic symptoms.',
     'Digestive': 'A digestive health medicine for relief from nausea, constipation and gut disorders.',
     'Antibiotic': 'A paediatric-grade antibiotic syrup for bacterial infections in children.',
