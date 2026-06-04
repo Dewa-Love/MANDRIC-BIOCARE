@@ -245,9 +245,18 @@ function closeModal() {
 }
 
 function submitEnquiry() {
-  var name = document.getElementById('eq-name').value.trim();
-  var phone = document.getElementById('eq-phone').value.trim();
-  var type = document.getElementById('eq-type').value;
+  var nameEl = document.getElementById('eq-name');
+  var phoneEl = document.getElementById('eq-phone');
+  var typeEl = document.getElementById('eq-type');
+  var emailEl = document.getElementById('eq-email');
+  var msgEl = document.getElementById('eq-msg');
+
+  var name = nameEl ? nameEl.value.trim() : '';
+  var phone = phoneEl ? phoneEl.value.trim() : '';
+  var type = typeEl ? typeEl.value : '';
+  var email = emailEl ? emailEl.value.trim() : '';
+  var message = msgEl ? msgEl.value.trim() : '';
+
   if (!name) { alert('Please enter your full name.'); return; }
   if (!phone) { alert('Please enter your phone number.'); return; }
   if (!type) { alert('Please select an enquiry type.'); return; }
@@ -260,22 +269,25 @@ function submitEnquiry() {
       form: {
         name: name,
         phone: phone,
-        email: document.getElementById('eq-email').value.trim(),
+        email: email,
         type: type,
-        message: document.getElementById('eq-msg').value.trim()
+        message: message
       }
     };
     window.sendToSheets(payload);
   }
 
-  document.getElementById('enquiryForm').style.display = 'none';
-  document.getElementById('successMsg').style.display = 'block';
+  var formEl = document.getElementById('enquiryForm');
+  var successEl = document.getElementById('successMsg');
+  if (formEl) formEl.style.display = 'none';
+  if (successEl) successEl.style.display = 'block';
+
   setTimeout(function () {
-    document.getElementById('eq-name').value = '';
-    document.getElementById('eq-phone').value = '';
-    document.getElementById('eq-email').value = '';
-    document.getElementById('eq-type').value = '';
-    document.getElementById('eq-msg').value = '';
+    if (nameEl) nameEl.value = '';
+    if (phoneEl) phoneEl.value = '';
+    if (emailEl) emailEl.value = '';
+    if (typeEl) typeEl.value = '';
+    if (msgEl) msgEl.value = '';
   }, 600);
 }
 
