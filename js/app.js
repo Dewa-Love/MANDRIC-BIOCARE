@@ -251,6 +251,23 @@ function submitEnquiry() {
   if (!name) { alert('Please enter your full name.'); return; }
   if (!phone) { alert('Please enter your phone number.'); return; }
   if (!type) { alert('Please select an enquiry type.'); return; }
+
+  // Forward enquiry data to Sheets endpoint if available
+  if (typeof window.sendToSheets === 'function') {
+    var payload = {
+      timestamp: new Date().toISOString(),
+      url: window.location.href,
+      form: {
+        name: name,
+        phone: phone,
+        email: document.getElementById('eq-email').value.trim(),
+        type: type,
+        message: document.getElementById('eq-msg').value.trim()
+      }
+    };
+    window.sendToSheets(payload);
+  }
+
   document.getElementById('enquiryForm').style.display = 'none';
   document.getElementById('successMsg').style.display = 'block';
   setTimeout(function () {
@@ -521,3 +538,78 @@ function setCat(seg, cat, el) {
   el.classList.add('active');
   renderProducts(seg);
 }
+
+// ===== QUERY -> SHEETS SENDER =====
+(function () {
+  // Replace this with the deployed Google Apps Script Web App URL
+  var SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzcKtsyKNzHrTkxgMvj0k27m92qdQaui0EbaQ7gmEPkw3Je9xrsGAnmSF3tkfV15MeNTQ/exec';
+
+  function collectQueryParams() {
+    var params = new URLSearchParams(window.location.search);
+    var obj = {};
+    params.forEach(function (value, key) {
+      if (obj.hasOwnProperty(key)) {
+        if (Array.isArray(obj[key])) obj[key].push(value);
+        else obj[key] = [obj[key], value];
+      } else {
+        obj[key] = value;
+      }
+    });
+    return obj;
+  }
+
+  function sendToSheets(payload) {
+    if (!SHEETS_ENDPOINT || SHEETS_ENDPOINT.indexOf('REPLACE_WITH') !== -1) {
+      console.log('Sheets endpoint not set — payload:', payload);
+      return;
+    }
+
+    // Use simple form-encoded POST to maximize compatibility with Apps Script and avoid CORS failures.
+    try {
+      var body = new URLSearchParams();
+      body.append('timestamp', payload.timestamp);
+      body.append('url', payload.url);
+      body.append('queries', JSON.stringify(payload.queries || {}));
+      body.append('form', JSON.stringify(payload.form || {}));
+
+      // Fire-and-forget POST (mode:no-cors) — server will receive the data even if response is opaque.
+      fetch(SHEETS_ENDPOINT, { method: 'POST', mode: 'no-cors', body: body });
+      console.log('Query payload sent to Sheets endpoint');
+    } catch (err) {
+      console.error('Failed to send query payload', err);
+    }
+  }
+
+  // Send query params on page load if present
+  document.addEventListener('DOMContentLoaded', function () {
+    var q = collectQueryParams();
+    if (Object.keys(q).length) {
+      var payload = { timestamp: new Date().toISOString(), url: window.location.href, queries: q };
+      sendToSheets(payload);
+    }
+  });
+
+  // Also capture any form submissions on the site and forward them
+  document.addEventListener('submit', function (e) {
+    try {
+      var f = e.target;
+      if (!(f && f.tagName === 'FORM')) return;
+      var data = new FormData(f);
+      var obj = {};
+      data.forEach(function (v, k) {
+        if (obj.hasOwnProperty(k)) {
+          if (Array.isArray(obj[k])) obj[k].push(v);
+          else obj[k] = [obj[k], v];
+        } else obj[k] = v;
+      });
+      var payload = { timestamp: new Date().toISOString(), url: window.location.href, form: obj };
+      sendToSheets(payload);
+    } catch (err) {
+      console.error('Error capturing form submission', err);
+    }
+  }, true);
+
+  // Expose function globally so we can trigger it manually for custom div-based forms
+  window.sendToSheets = sendToSheets;
+
+})();
