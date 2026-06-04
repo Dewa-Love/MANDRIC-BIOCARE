@@ -76,6 +76,10 @@ body.intro-playing > :not(.video-intro) {
   pointer-events: none;
 }
 
+body:not(.intro-playing) > .video-intro {
+  display: none;
+}
+
 .video-intro video {
   width: 100%;
   height: 100%;

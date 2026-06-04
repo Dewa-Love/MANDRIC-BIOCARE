@@ -7,26 +7,46 @@
   if (!intro || !video) return;
 
   var finished = false;
+  var fallbackTimer = null;
 
   function finishIntro() {
     if (finished) return;
     finished = true;
+    if (fallbackTimer) clearTimeout(fallbackTimer);
     intro.classList.add('closing');
     document.body.classList.remove('intro-playing');
+    document.body.style.overflow = '';
     setTimeout(function () {
       if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+      document.body.style.visibility = '';
     }, 450);
   }
 
   video.addEventListener('ended', finishIntro);
   video.addEventListener('error', finishIntro);
+  video.addEventListener('timeupdate', function () {
+    if (video.duration && video.currentTime >= video.duration - 0.08) {
+      finishIntro();
+    }
+  });
+
+  video.loop = false;
+  video.defaultPlaybackRate = 1.5;
+  video.playbackRate = 1.5;
 
   var autoplayPromise = video.play();
   if (autoplayPromise && typeof autoplayPromise.catch === 'function') {
     autoplayPromise.catch(finishIntro);
   }
 
-  setTimeout(finishIntro, 15000);
+  video.addEventListener('loadedmetadata', function () {
+    var introDuration = video.duration && isFinite(video.duration) ? video.duration : 10;
+    var introMs = Math.max(2500, Math.ceil((introDuration / 1.5) * 1000) + 400);
+    if (fallbackTimer) clearTimeout(fallbackTimer);
+    fallbackTimer = setTimeout(finishIntro, introMs);
+  });
+
+  fallbackTimer = setTimeout(finishIntro, 12000);
 })();
 
 // ===== HAMBURGER =====
