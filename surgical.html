@@ -108,18 +108,14 @@
 <div class="product-layout">
   <div class="container">
     <div class="product-inner">
-      <div class="filter-sidebar">
-        <h3>&#128269; Filter Products</h3>
+      <div>
+        <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterSidebar()" aria-expanded="false" aria-controls="filterSidebar">
+          <span>&#128269; Search Products</span>
+          <i class="ftb-arrow">&#8964;</i>
+        </button>
+        <div class="filter-sidebar" id="filterSidebar">
+        <h3>&#128269; Search Products</h3>
         <input class="filter-search" type="text" placeholder="Search surgical item..." oninput="filterProducts('surgical',this.value)" id="surgical-search">
-        <div class="filter-group">
-          <h4>Category</h4>
-          <span class="filter-tag active" onclick="setCat('surgical','All',this)">All</span>
-          <span class="filter-tag" onclick="setCat('surgical','Instruments',this)">Instruments</span>
-          <span class="filter-tag" onclick="setCat('surgical','Disposables',this)">Disposables</span>
-          <span class="filter-tag" onclick="setCat('surgical','Sutures',this)">Sutures</span>
-          <span class="filter-tag" onclick="setCat('surgical','Wound Care',this)">Wound Care</span>
-          <span class="filter-tag" onclick="setCat('surgical','OT Supplies',this)">OT Supplies</span>
-          <span class="filter-tag" onclick="setCat('surgical','Diagnostic',this)">Diagnostic</span>
         </div>
       </div>
       <div>

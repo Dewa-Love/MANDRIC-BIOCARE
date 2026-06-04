@@ -108,22 +108,14 @@
 <div class="product-layout">
   <div class="container">
     <div class="product-inner">
-      <div class="filter-sidebar">
-        <h3>&#128269; Filter Products</h3>
+      <div>
+        <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterSidebar()" aria-expanded="false" aria-controls="filterSidebar">
+          <span>&#128269; Search Products</span>
+          <i class="ftb-arrow">&#8964;</i>
+        </button>
+        <div class="filter-sidebar" id="filterSidebar">
+        <h3>&#128269; Search Products</h3>
         <input class="filter-search" type="text" placeholder="Search medicine name..." oninput="filterProducts('pharma',this.value)" id="pharma-search">
-        <div class="filter-group">
-          <h4>Therapeutic Area</h4>
-          <span class="filter-tag active" onclick="setCat('pharma','All',this)">All</span>
-          <span class="filter-tag" onclick="setCat('pharma','Antibiotic',this)">Antibiotic</span>
-          <span class="filter-tag" onclick="setCat('pharma','Cardiac',this)">Cardiac</span>
-          <span class="filter-tag" onclick="setCat('pharma','Gynaec',this)">Gynaec</span>
-          <span class="filter-tag" onclick="setCat('pharma','Paediatric',this)">Paediatric</span>
-          <span class="filter-tag" onclick="setCat('pharma','Analgesic',this)">Analgesic</span>
-          <span class="filter-tag" onclick="setCat('pharma','Gastro',this)">Gastro</span>
-          <span class="filter-tag" onclick="setCat('pharma','Neuro',this)">Neuro</span>
-          <span class="filter-tag" onclick="setCat('pharma','Derma',this)">Derma</span>
-          <span class="filter-tag" onclick="setCat('pharma','Ortho',this)">Ortho</span>
-          <span class="filter-tag" onclick="setCat('pharma','ENT',this)">ENT</span>
         </div>
       </div>
       <div>

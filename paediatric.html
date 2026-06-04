@@ -108,19 +108,14 @@
 <div class="product-layout">
   <div class="container">
     <div class="product-inner">
-      <div class="filter-sidebar">
-        <h3>&#128269; Filter Products</h3>
+      <div>
+        <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterSidebar()" aria-expanded="false" aria-controls="filterSidebar">
+          <span>&#128269; Search Products</span>
+          <i class="ftb-arrow">&#8964;</i>
+        </button>
+        <div class="filter-sidebar" id="filterSidebar">
+        <h3>&#128269; Search Products</h3>
         <input class="filter-search" type="text" placeholder="Search paediatric product..." oninput="filterProducts('paediatric',this.value)" id="paediatric-search">
-        <div class="filter-group">
-          <h4>Category</h4>
-          <span class="filter-tag active" onclick="setCat('paediatric','All',this)">All</span>
-          <span class="filter-tag" onclick="setCat('paediatric','Nutrition',this)">Nutrition</span>
-          <span class="filter-tag" onclick="setCat('paediatric','Vitamins',this)">Vitamins</span>
-          <span class="filter-tag" onclick="setCat('paediatric','Antibiotic',this)">Antibiotic</span>
-          <span class="filter-tag" onclick="setCat('paediatric','Immunity',this)">Immunity</span>
-          <span class="filter-tag" onclick="setCat('paediatric','Cough & Cold',this)">Cough &amp; Cold</span>
-          <span class="filter-tag" onclick="setCat('paediatric','Digestive',this)">Digestive</span>
-          <span class="filter-tag" onclick="setCat('paediatric','Iron & Calcium',this)">Iron &amp; Calcium</span>
         </div>
       </div>
       <div>

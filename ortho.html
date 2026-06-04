@@ -108,18 +108,14 @@
 <div class="product-layout">
   <div class="container">
     <div class="product-inner">
-      <div class="filter-sidebar">
-        <h3>&#128269; Filter Products</h3>
+      <div>
+        <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterSidebar()" aria-expanded="false" aria-controls="filterSidebar">
+          <span>&#128269; Search Products</span>
+          <i class="ftb-arrow">&#8964;</i>
+        </button>
+        <div class="filter-sidebar" id="filterSidebar">
+        <h3>&#128269; Search Products</h3>
         <input class="filter-search" type="text" placeholder="Search ortho product..." oninput="filterProducts('ortho',this.value)" id="ortho-search">
-        <div class="filter-group">
-          <h4>Category</h4>
-          <span class="filter-tag active" onclick="setCat('ortho','All',this)">All</span>
-          <span class="filter-tag" onclick="setCat('ortho','Pain Relief',this)">Pain Relief</span>
-          <span class="filter-tag" onclick="setCat('ortho','Bone Health',this)">Bone Health</span>
-          <span class="filter-tag" onclick="setCat('ortho','Muscle Relaxant',this)">Muscle Relaxant</span>
-          <span class="filter-tag" onclick="setCat('ortho','Supports',this)">Supports &amp; Braces</span>
-          <span class="filter-tag" onclick="setCat('ortho','Injection',this)">Injection</span>
-          <span class="filter-tag" onclick="setCat('ortho','Topical',this)">Topical</span>
         </div>
       </div>
       <div>
