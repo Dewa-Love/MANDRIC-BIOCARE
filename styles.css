@@ -88,6 +88,23 @@ body:not(.intro-playing) > .video-intro {
   background: #000;
 }
 
+.intro-skip {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 6000;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.intro-skip:hover{background:rgba(255,255,255,0.18)}
+
 /* === FLUID CONTAINER === */
 .container {
   width: min(1280px, 92%);

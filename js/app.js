@@ -47,6 +47,15 @@
   });
 
   fallbackTimer = setTimeout(finishIntro, 12000);
+  // Skip button, overlay click and ESC to finish intro immediately
+  var skipBtn = document.getElementById('skipIntro');
+  if (skipBtn) skipBtn.addEventListener('click', finishIntro);
+  intro.addEventListener('click', function (e) {
+    if (e.target === intro) finishIntro();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') finishIntro();
+  });
 })();
 
 // ===== HAMBURGER =====
