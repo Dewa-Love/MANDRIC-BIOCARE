@@ -1,5 +1,34 @@
 // ===== LOGO (src already set in HTML — no override needed) =====
 
+// ===== HOMEPAGE VIDEO INTRO =====
+(function () {
+  var intro = document.getElementById('siteIntro');
+  var video = document.getElementById('siteIntroVideo');
+  if (!intro || !video) return;
+
+  var finished = false;
+
+  function finishIntro() {
+    if (finished) return;
+    finished = true;
+    intro.classList.add('closing');
+    document.body.classList.remove('intro-playing');
+    setTimeout(function () {
+      if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+    }, 450);
+  }
+
+  video.addEventListener('ended', finishIntro);
+  video.addEventListener('error', finishIntro);
+
+  var autoplayPromise = video.play();
+  if (autoplayPromise && typeof autoplayPromise.catch === 'function') {
+    autoplayPromise.catch(finishIntro);
+  }
+
+  setTimeout(finishIntro, 15000);
+})();
+
 // ===== HAMBURGER =====
 function toggleMenu() {
   var m = document.getElementById('mobileMenu');
@@ -56,6 +85,103 @@ function generateDesc(product, comp, cat, form) {
   return desc;
 }
 
+function getBenefitPoints(cat, form) {
+  var benefitMap = {
+    Digestive: [
+      'Supports healthy digestive balance and gut comfort',
+      'Helps customers discuss common stomach and bowel concerns',
+      'Suitable for retail, wholesale and distribution enquiries'
+    ],
+    Antibiotic: [
+      'Useful for bacterial infection management discussions',
+      'Available in a formulation suited for clinical recommendation',
+      'Supported by fast-response enquiry handling for partners'
+    ],
+    Nutrition: [
+      'Supports daily nutritional needs and recovery planning',
+      'Easy to present to families, clinics and stockists',
+      'Works well for bulk and institutional enquiries'
+    ],
+    Analgesic: [
+      'Designed for pain and fever relief conversations',
+      'Convenient dosage format for everyday use cases',
+      'Good fit for retailer and distributor follow-up'
+    ],
+    Gastro: [
+      'Supports gastric comfort and acid-related concerns',
+      'Helps position the product for prescription and trade leads',
+      'Ideal for quick WhatsApp and form-based enquiries'
+    ],
+    Immunity: [
+      'Supports general wellness and preventive care needs',
+      'Helpful for seasonal and family-health discussions',
+      'Simple to route to the right sales or support contact'
+    ],
+    Liver: [
+      'Supports liver care and detoxification conversations',
+      'Appropriate for clinical, retail and stockist queries',
+      'Built for quick follow-up from the Mandric team'
+    ],
+    Skin: [
+      'Helps position the product for topical care enquiries',
+      'Easy to explain in both retail and practitioner settings',
+      'Useful for bulk and distribution requests'
+    ],
+    Joints: [
+      'Supports joint comfort and mobility discussions',
+      'Practical for customer, doctor and wholesale enquiries',
+      'Keeps the enquiry flow simple and fast'
+    ]
+  };
+
+  var defaults = [
+    'Quality-assured formulation with clear product details',
+    'Fast response from our enquiry team',
+    'Suitable for retail, wholesale and distribution follow-up'
+  ];
+
+  var key = cat && benefitMap[cat] ? cat : null;
+  var points = key ? benefitMap[key].slice(0, 3) : defaults.slice(0, 3);
+
+  if (form && points.length < 3) {
+    points.push('Available in ' + form.toLowerCase() + ' format for easy discussion');
+  }
+
+  return points.slice(0, 3);
+}
+
+function buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText) {
+  var benefitPoints = getBenefitPoints(cat, form);
+  var icoHtml = img
+    ? '<img src="' + img + '" alt="' + product + '" style="width:100%;height:100%;object-fit:cover;border-radius:14px;display:block;">'
+    : (ico || '&#128138;');
+
+  return ''
+    + '<div class="modal-prod-hero">'
+    + '<div class="modal-prod-ico' + (img ? ' modal-prod-ico-photo' : '') + '">' + icoHtml + '</div>'
+    + '<div class="modal-prod-info">'
+    + '<div class="modal-prod-name">' + product + '</div>'
+    + (comp ? '<div class="modal-prod-comp">' + comp + '</div>' : '')
+    + '<div class="modal-prod-meta">'
+    + (cat ? '<span class="prod-tag">' + cat + '</span>' : '')
+    + (form ? '<span class="prod-tag green">' + form + '</span>' : '')
+    + '</div>'
+    + '</div>'
+    + '</div>'
+    + '<div class="modal-prod-benefits">'
+    + benefitPoints.map(function (point) {
+      return '<div class="modal-benefit"><i class="ti ti-circle-check" aria-hidden="true"></i><span>' + point + '</span></div>';
+    }).join('')
+    + '</div>'
+    + '<div class="modal-prod-desc">'
+    + '<div class="modal-prod-desc-label">&#128196; About this product</div>'
+    + '<div class="modal-prod-desc-text">' + desc + '</div>'
+    + '</div>'
+    + '<div class="modal-prod-wa">'
+    + '<a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a>'
+    + '</div>';
+}
+
 function openModal(product, comp, cat, form, ico, img) {
   var isProduct = product && product !== 'General Enquiry' && product !== 'Partnership Enquiry';
   var overlay = document.getElementById('enquiryModal');
@@ -69,32 +195,10 @@ function openModal(product, comp, cat, form, ico, img) {
   document.getElementById('successMsg').style.display = 'none';
 
   if (isProduct) {
-    // Build the icon/photo element for the modal hero
-    var icoHtml = img
-      ? '<img src="' + img + '" alt="' + product + '" style="width:100%;height:100%;object-fit:contain;border-radius:14px;display:block;">'
-      : (ico || '&#128138;');
     var waText = 'Hi, I would like to enquire about: ' + product + (comp ? ' (' + comp + ')' : '');
     var desc = generateDesc(product, comp, cat, form);
 
-    badge.innerHTML =
-      '<div class="modal-prod-hero">'
-      + '<div class="modal-prod-ico' + (img ? ' modal-prod-ico-photo' : '') + '">' + icoHtml + '</div>'
-      + '<div class="modal-prod-info">'
-      + '<div class="modal-prod-name">' + product + '</div>'
-      + (comp ? '<div class="modal-prod-comp">' + comp + '</div>' : '')
-      + '<div class="modal-prod-meta">'
-      + (cat ? '<span class="prod-tag">' + cat + '</span>' : '')
-      + (form ? '<span class="prod-tag green">' + form + '</span>' : '')
-      + '</div>'
-      + '</div>'
-      + '</div>'
-      + '<div class="modal-prod-desc">'
-      + '<div class="modal-prod-desc-label">&#128196; About this product</div>'
-      + '<div class="modal-prod-desc-text">' + desc + '</div>'
-      + '</div>'
-      + '<div class="modal-prod-wa">'
-      + '<a href="https://wa.me/919919909009?text=' + encodeURIComponent(waText) + '" target="_blank" class="btn-wa-quick">&#128172; Quick WhatsApp Enquiry</a>'
-      + '</div>';
+    badge.innerHTML = buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText);
 
     document.getElementById('eq-msg').value = waText;
   } else {

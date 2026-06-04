@@ -49,6 +49,41 @@ body {
   background: #fff;
 }
 
+body.intro-playing {
+  overflow: hidden;
+}
+
+body.intro-playing > :not(.video-intro) {
+  visibility: hidden;
+}
+
+.video-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .45s ease, visibility .45s ease;
+}
+
+.video-intro.closing {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.video-intro video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
 /* === FLUID CONTAINER === */
 .container {
   width: min(1280px, 92%);
@@ -1579,12 +1614,23 @@ footer {
 
 /* Modal with product photo — larger display area */
 .modal-prod-ico-photo{
-  width:100px;height:100px;
+  width:200px;height:200px;
+  flex:0 0 200px;
+  min-width:200px;
+  min-height:200px;
+  aspect-ratio:1 / 1;
   border-radius:16px;
   background:rgba(255,255,255,.95);
   border:2px solid rgba(255,255,255,.6);
   overflow:hidden;
-  padding:6px;
+  padding:0;
+}
+
+.modal-prod-ico-photo img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block;
 }
 
 .no-results {
@@ -1816,7 +1862,8 @@ footer {
 }
 
 .modal-prod-hero {
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
   align-items: center;
   gap: 22px;
   margin-bottom: 22px;
@@ -1882,6 +1929,35 @@ footer {
 
 .modal-prod-wa {
   margin-bottom: 22px;
+}
+
+.modal-prod-benefits {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.modal-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #f7fbff;
+  border: 1px solid #dfeafb;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.modal-benefit i {
+  font-size: 16px;
+  color: #2E7D32;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.modal-benefit span {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #24324a;
 }
 
 .modal-prod-desc {
@@ -2698,16 +2774,24 @@ footer {
   }
 
   .modal-prod-hero {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
+    justify-items: start;
     gap: 14px;
     padding: 16px;
   }
 
-  .modal-prod-ico {
+  .modal-prod-ico:not(.modal-prod-ico-photo) {
     width: 60px;
     height: 60px;
     font-size: 32px;
+  }
+
+  .modal-prod-ico-photo {
+    width: 200px;
+    height: 200px;
+    flex: 0 0 200px;
+    min-width: 200px;
+    min-height: 200px;
   }
 
   .modal-prod-name {
@@ -2725,6 +2809,19 @@ footer {
 
   .modal-prod-desc {
     padding: 14px 16px;
+  }
+
+  .modal-prod-benefits {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .modal-benefit {
+    padding: 10px 12px;
+  }
+
+  .modal-benefit span {
+    font-size: 12.5px;
   }
 }
 
