@@ -291,6 +291,54 @@ function submitEnquiry() {
   }, 600);
 }
 
+function submitContactForm() {
+  var nameEl = document.getElementById('c-name');
+  var phoneEl = document.getElementById('c-phone');
+  var typeEl = document.getElementById('c-type');
+  var emailEl = document.getElementById('c-email');
+  var msgEl = document.getElementById('c-msg');
+
+  var name = nameEl ? nameEl.value.trim() : '';
+  var phone = phoneEl ? phoneEl.value.trim() : '';
+  var type = typeEl ? typeEl.value : '';
+  var email = emailEl ? emailEl.value.trim() : '';
+  var message = msgEl ? msgEl.value.trim() : '';
+
+  if (!name) { alert('Please enter your full name.'); return; }
+  if (!phone) { alert('Please enter your phone number.'); return; }
+  if (!type) { alert('Please select an enquiry type.'); return; }
+  if (!message) { alert('Please enter your message.'); return; }
+
+  // Forward contact message to Sheets endpoint if available
+  if (typeof window.sendToSheets === 'function') {
+    var payload = {
+      timestamp: new Date().toISOString(),
+      url: window.location.href,
+      form: {
+        name: name,
+        phone: phone,
+        email: email,
+        type: type,
+        message: message
+      }
+    };
+    window.sendToSheets(payload);
+  }
+
+  var formEl = document.getElementById('contactForm');
+  var successEl = document.getElementById('contactSuccessMsg');
+  if (formEl) formEl.style.display = 'none';
+  if (successEl) successEl.style.display = 'block';
+
+  setTimeout(function () {
+    if (nameEl) nameEl.value = '';
+    if (phoneEl) phoneEl.value = '';
+    if (emailEl) emailEl.value = '';
+    if (typeEl) typeEl.value = '';
+    if (msgEl) msgEl.value = '';
+  }, 600);
+}
+
 // Safe modal overlay click-to-close (guard prevents crash if modal missing)
 var _modal = document.getElementById('enquiryModal');
 if (_modal) {
