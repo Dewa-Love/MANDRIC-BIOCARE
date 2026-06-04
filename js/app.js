@@ -31,8 +31,8 @@
   });
 
   video.loop = false;
-  video.defaultPlaybackRate = 1.5;
-  video.playbackRate = 1.5;
+  video.defaultPlaybackRate = 2;
+  video.playbackRate = 2;
 
   var autoplayPromise = video.play();
   if (autoplayPromise && typeof autoplayPromise.catch === 'function') {
