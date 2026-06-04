@@ -7,6 +7,27 @@
 <title>Home | Mandric Biocare Pvt. Ltd.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body.intro-playing {
+    overflow: hidden;
+  }
+  body.intro-playing > :not(.video-intro) {
+    visibility: hidden;
+  }
+  .video-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: #000;
+  }
+  .video-intro video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+    background: #000;
+  }
+</style>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="intro-playing">

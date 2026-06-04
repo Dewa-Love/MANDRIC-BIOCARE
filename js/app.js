@@ -153,12 +153,12 @@ function getBenefitPoints(cat, form) {
 function buildProductBadgeHtml(product, comp, cat, form, ico, img, desc, waText) {
   var benefitPoints = getBenefitPoints(cat, form);
   var icoHtml = img
-    ? '<img src="' + img + '" alt="' + product + '" style="width:100%;height:100%;object-fit:cover;border-radius:14px;display:block;">'
+    ? '<img src="' + img + '" alt="' + product + '" style="width:200px;height:200px;max-width:200px;max-height:200px;object-fit:cover;display:block;">'
     : (ico || '&#128138;');
 
   return ''
     + '<div class="modal-prod-hero">'
-    + '<div class="modal-prod-ico' + (img ? ' modal-prod-ico-photo' : '') + '">' + icoHtml + '</div>'
+    + '<div class="modal-prod-ico' + (img ? ' modal-prod-ico-photo' : '') + '" style="' + (img ? 'width:200px;height:200px;min-width:200px;min-height:200px;flex:0 0 200px;aspect-ratio:1/1;padding:0;' : '') + '">' + icoHtml + '</div>'
     + '<div class="modal-prod-info">'
     + '<div class="modal-prod-name">' + product + '</div>'
     + (comp ? '<div class="modal-prod-comp">' + comp + '</div>' : '')
