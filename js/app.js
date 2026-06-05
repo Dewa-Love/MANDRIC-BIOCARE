@@ -41,7 +41,7 @@
 
   video.addEventListener('loadedmetadata', function () {
     var introDuration = video.duration && isFinite(video.duration) ? video.duration : 10;
-    var introMs = Math.max(2500, Math.ceil((introDuration / 1.5) * 1000) + 400);
+    var introMs = Math.max(2500, Math.ceil((introDuration / 2.5) * 1000) + 400);
     if (fallbackTimer) clearTimeout(fallbackTimer);
     fallbackTimer = setTimeout(finishIntro, introMs);
   });
