@@ -120,7 +120,8 @@ function generateDesc(product, comp, cat, form) {
     'Ayurvedic Laxative': 'A 100% natural Ayurvedic laxative formulation for gentle and effective constipation relief.',
     'Hepatoprotective / Liver Tonic': 'A hepatoprotective liver tonic to detoxify, rejuvenate, and support liver function.',
     'Anti-Renal Calculi': 'A natural Ayurvedic proprietary syrup formulated to manage kidney stones and renal health.',
-    'Anti-inflammatory / Analgesic / Enzyme': 'A powerful combination of analgesic, anti-inflammatory, and enzyme actions for rapid pain relief.'
+    'Anti-inflammatory / Analgesic / Enzyme': 'A powerful combination of analgesic, anti-inflammatory, and enzyme actions for rapid pain relief.',
+    'Respiratory': 'A specialized respiratory formulation to support clear breathing and airway comfort.'
   };
   var desc = catDescMap[cat] || ('A quality-assured ' + (form || 'formulation').toLowerCase() + ' for ' + (cat || 'therapeutic').toLowerCase() + ' use, manufactured under GMP-certified standards.');
   if (comp) desc += ' Active ingredient: ' + comp + '.';
@@ -445,8 +446,11 @@ var products = {
     { name: 'Dricpod 50', comp: 'Cefpodoxime Proxetil Oral Suspension (11 mg/30 ml)', cat: 'Antibiotic (Pediatric)', form: 'Suspension', ico: '&#128138;', img: 'dricpod-50.jpg' },
     { name: 'Dricpod 100', comp: 'Cefpodoxime Proxetil Oral Suspension (5.5 mg/30 ml)', cat: 'Antibiotic (Pediatric)', form: 'Suspension', ico: '&#128138;', img: 'dricpod-100.jpg' },
     { name: 'Clav Dric', comp: 'Amoxycillin 200 mg + Potassium Clavulanate 28.5 mg (Oral Suspension)', cat: 'Antibiotic (Pediatric)', form: 'Dry Syrup', ico: '&#128138;', img: 'clav-dric.jpg' },
+    { name: 'Nasodric', comp: 'Saline nasal formulation', cat: 'Respiratory', form: 'Nasal Drops', ico: '&#128167;', img: 'nasodric.jpg' },
+    { name: 'Xylodric', comp: 'Xylometazoline nasal drops', cat: 'Cough & Cold', form: 'Nasal Drops', ico: '&#128560;', img: 'xylodric.jpg' },
     // ── MANDRIC BIOCARE GENERAL RANGE ──
     { name: 'Chymodric Forte', comp: 'Trypsin 96 mg + Bromelain 180 mg + Rutoside 200 mg', cat: 'Enzyme / Anti-inflammatory', form: 'Tablet', ico: '&#129657;', img: 'chymodric-forte.jpg' },
+    { name: 'Calcidric Plus', comp: 'Calcium 500 mg + Vitamin D3 1000 IU + Magnesium 50 mg', cat: 'Bone Health', form: 'Tablet', ico: '&#129460;', img: 'calcidric-plus.jpg' },
     { name: 'Nutridric Capsules', comp: 'Natural Extracts, Amino Acids, Nutrients, Omega-3 Fatty Acids, Vitamins & Minerals', cat: 'Nutraceutical', form: 'Softgel Capsule', ico: '&#11088;', img: 'nutridric-cap.jpg' },
     { name: 'Nutridric-SF', comp: 'Protein Powder with DHA, Multivitamins & Multiminerals (Sugar Free)', cat: 'Nutraceutical', form: 'Powder', ico: '&#11088;', img: 'nutridric-sf.jpg' },
     { name: 'Rabidric 40 DSR', comp: 'Rabeprazole Sodium 40 mg + Domperidone 10 mg (IR) 30 mg', cat: 'Antacid / Proton Pump Inhibitor', form: 'Capsule', ico: '&#129531;', img: 'rabidric-40-dsr.jpg' },
@@ -460,50 +464,6 @@ var products = {
     { name: 'Hepa-Dric Syrup', comp: 'Silymarin 70 mg, L-Ornithin L-Aspartate 300 mg, Lecithin 100 mg + B-Complex', cat: 'Hepatoprotective / Liver Tonic', form: 'Syrup', ico: '&#127807;', img: 'hepadric.jpg' },
     { name: 'Stondric Syrup', comp: 'Kidney Stone Support (100% Natural & Authentic Pure Herbs)', cat: 'Anti-Renal Calculi', form: 'Syrup', ico: '&#129531;', img: 'stomodric.jpg' },
     { name: 'Nimodric-SP', comp: 'Nimesulide 100 mg + Paracetamol 325 mg + Serratiopeptidase 15 mg', cat: 'Anti-inflammatory / Analgesic / Enzyme', form: 'Tablet', ico: '&#128138;', img: 'nimodric-sp.jpg' }
-  ],
-
-  ayurvedic: [
-    { name: 'Ashwagandha Churna', comp: 'Withania somnifera root powder', cat: 'Immunity', form: 'Powder', ico: '&#127807;' },
-    { name: 'Triphala Churna', comp: 'Amalaki, Bibhitaki, Haritaki', cat: 'Digestive', form: 'Powder', ico: '&#127807;' },
-    { name: 'Chyawanprash', comp: 'Amalaki + 40 herbs blend', cat: 'Immunity', form: 'Jam', ico: '&#127803;' },
-    { name: 'Brahmi Capsules', comp: 'Bacopa monnieri extract 300mg', cat: 'Immunity', form: 'Capsule', ico: '&#127807;' },
-    { name: 'Shatavari Granules', comp: 'Asparagus racemosus extract', cat: 'Womens Health', form: 'Granules', ico: '&#127804;' },
-    { name: 'Hingwastak Churna', comp: 'Asafoetida + 7 herbs', cat: 'Digestive', form: 'Powder', ico: '&#127807;' },
-    { name: 'Liver Care Tablet', comp: 'Himsra + Kasani + Punarnava', cat: 'Liver', form: 'Tablet', ico: '&#127807;' },
-    { name: 'Neem Capsules', comp: 'Azadirachta indica leaf 500mg', cat: 'Skin', form: 'Capsule', ico: '&#127807;' },
-    { name: 'Turmeric Capsules', comp: 'Curcuma longa standardized 95%', cat: 'Immunity', form: 'Capsule', ico: '&#129000;' },
-    { name: 'Giloy Juice', comp: 'Tinospora cordifolia stem', cat: 'Immunity', form: 'Juice', ico: '&#127807;' },
-    { name: 'Aloe Vera Juice', comp: 'Aloe barbadensis leaf 99%', cat: 'Digestive', form: 'Juice', ico: '&#127807;' },
-    { name: 'Amla Juice', comp: 'Phyllanthus emblica fresh juice', cat: 'Immunity', form: 'Juice', ico: '&#127807;' },
-    { name: 'Chandraprabha Vati', comp: 'Multi-herb Ayurvedic formulation', cat: 'Womens Health', form: 'Tablet', ico: '&#127807;' },
-    { name: 'Mahanarayan Oil', comp: 'Narayana + sesame oil base', cat: 'Joints', form: 'Oil', ico: '&#129405;' },
-    { name: 'Neem Tulsi Face Wash', comp: 'Neem + Tulsi + Aloe extracts', cat: 'Skin', form: 'Face Wash', ico: '&#129340;' },
-    { name: 'Punarnavadi Mandur', comp: 'Punarnava + iron complex', cat: 'Liver', form: 'Tablet', ico: '&#127807;' },
-    { name: 'Shilajit Capsules', comp: 'Purified Shilajit 500mg', cat: 'Immunity', form: 'Capsule', ico: '&#11035;' },
-    { name: 'Kanchanar Guggulu', comp: 'Kanchanar bark + Guggulu resin', cat: 'Joints', form: 'Tablet', ico: '&#127807;' }
-  ],
-  nutraceutical: [
-    { name: 'Vitamin C 500mg', comp: 'Ascorbic Acid', cat: 'Vitamins', form: 'Tablet', ico: '&#127818;' },
-    { name: 'Vitamin D3 60000 IU', comp: 'Cholecalciferol', cat: 'Vitamins', form: 'Sachet', ico: '&#9728;&#65039;' },
-    { name: 'Vitamin B12 1500mcg', comp: 'Methylcobalamin', cat: 'Vitamins', form: 'Tablet', ico: '&#128138;' },
-    { name: 'Multivitamin + Minerals', comp: '12 Vitamins + 9 Minerals blend', cat: 'Vitamins', form: 'Tablet', ico: '&#127752;' },
-    { name: 'Biotin 10000mcg', comp: 'D-Biotin', cat: 'Vitamins', form: 'Tablet', ico: '&#128138;' },
-    { name: 'Zinc 50mg', comp: 'Zinc Sulphate Monohydrate', cat: 'Minerals', form: 'Tablet', ico: '&#128309;' },
-    { name: 'Magnesium 250mg', comp: 'Magnesium Oxide', cat: 'Minerals', form: 'Tablet', ico: '&#9898;' },
-    { name: 'Iron + Folic Acid', comp: 'Ferrous Sulphate + Folic Acid', cat: 'Minerals', form: 'Tablet', ico: '&#128308;' },
-    { name: 'Selenium 200mcg', comp: 'Selenium Methionine', cat: 'Minerals', form: 'Tablet', ico: '&#128138;' },
-    { name: 'Calcium + Mag + D3', comp: 'Triple Bone Support Complex', cat: 'Bone Health', form: 'Tablet', ico: '&#129460;' },
-    { name: 'Glucosamine + Chondroitin', comp: 'Joint Support Complex', cat: 'Bone Health', form: 'Tablet', ico: '&#129460;' },
-    { name: 'Collagen Peptides', comp: 'Hydrolysed Marine Collagen 10g', cat: 'Bone Health', form: 'Powder', ico: '&#10024;' },
-    { name: 'Whey Protein Powder', comp: 'Whey Protein Concentrate 80%', cat: 'Protein', form: 'Powder', ico: '&#129371;' },
-    { name: 'Plant Protein Blend', comp: 'Pea + Rice + Hemp protein', cat: 'Protein', form: 'Powder', ico: '&#127807;' },
-    { name: 'Omega-3 Fish Oil', comp: 'EPA 180mg + DHA 120mg per cap', cat: 'Immunity', form: 'Softgel', ico: '&#128031;' },
-    { name: 'Probiotic + Prebiotic', comp: '10 Billion CFU multi-strain', cat: 'Immunity', form: 'Sachet', ico: '&#129440;' },
-    { name: 'Elderberry + Vit C + Zinc', comp: 'Immunity Support Complex', cat: 'Immunity', form: 'Tablet', ico: '&#129359;' },
-    { name: 'Spirulina 500mg', comp: 'Arthrospira platensis dried', cat: 'Immunity', form: 'Tablet', ico: '&#127796;' },
-    { name: 'CoQ10 100mg', comp: 'Coenzyme Q10 (Ubiquinone)', cat: 'Antioxidant', form: 'Softgel', ico: '&#128155;' },
-    { name: 'Alpha Lipoic Acid 300mg', comp: 'R-Alpha Lipoic Acid', cat: 'Antioxidant', form: 'Capsule', ico: '&#128998;' },
-    { name: 'Lycopene + Selenium', comp: 'Lycopene 8% + Selenium 200mcg', cat: 'Antioxidant', form: 'Tablet', ico: '&#127813;' }
   ],
   surgical: [
     { name: 'Chymodric Forte', comp: 'Trypsin 96 mg + Bromelain 180 mg + Rutoside 200 mg', cat: 'Enzyme / Anti-inflammatory', form: 'Tablet', ico: '&#129657;', img: 'chymodric-forte.jpg' },
@@ -536,11 +496,14 @@ var products = {
     { name: 'Dricfer-XT', comp: 'Ferrous Fumarate 30 mg + Folic Acid 550 mcg', cat: 'Iron Supplement (Pediatric)', form: 'Suspension', ico: '&#129386;', img: 'dricfer-xp.jpg' },
     { name: 'Dricpod 50', comp: 'Cefpodoxime Proxetil Oral Suspension (11 mg/30 ml)', cat: 'Antibiotic (Pediatric)', form: 'Suspension', ico: '&#128138;', img: 'dricpod-50.jpg' },
     { name: 'Dricpod 100', comp: 'Cefpodoxime Proxetil Oral Suspension (5.5 mg/30 ml)', cat: 'Antibiotic (Pediatric)', form: 'Suspension', ico: '&#128138;', img: 'dricpod-100.jpg' },
-    { name: 'Clav Dric', comp: 'Amoxycillin 200 mg + Potassium Clavulanate 28.5 mg (Oral Suspension)', cat: 'Antibiotic (Pediatric)', form: 'Dry Syrup', ico: '&#128138;', img: 'clav-dric.jpg' }
+    { name: 'Clav Dric', comp: 'Amoxycillin 200 mg + Potassium Clavulanate 28.5 mg (Oral Suspension)', cat: 'Antibiotic (Pediatric)', form: 'Dry Syrup', ico: '&#128138;', img: 'clav-dric.jpg' },
+    { name: 'Nasodric', comp: 'Saline nasal formulation', cat: 'Respiratory', form: 'Nasal Drops', ico: '&#128167;', img: 'nasodric.jpg' },
+    { name: 'Xylodric', comp: 'Xylometazoline nasal drops', cat: 'Cough & Cold', form: 'Nasal Drops', ico: '&#128560;', img: 'xylodric.jpg' },
   ],
   ortho: [
     // ── MANDRIC BIOCARE BRANDED ORTHO RANGE ──
     { name: 'Chymodric Forte', comp: 'Trypsin 96 mg + Bromelain 180 mg + Rutoside 200 mg', cat: 'Enzyme / Anti-inflammatory', form: 'Tablet', ico: '&#129657;', img: 'chymodric-forte.jpg' },
+    { name: 'Calcidric Plus', comp: 'Calcium 500 mg + Vitamin D3 1000 IU + Magnesium 50 mg', cat: 'Bone Health', form: 'Tablet', ico: '&#129460;', img: 'calcidric-plus.jpg' },
     { name: 'Nutridric Capsules', comp: 'Natural Extracts, Amino Acids, Nutrients, Omega-3 Fatty Acids, Vitamins & Minerals', cat: 'Nutraceutical', form: 'Softgel Capsule', ico: '&#11088;', img: 'nutridric-cap.jpg' },
     { name: 'Nutridric Syrup', comp: 'Multivitamin, Multimineral, B-Complex & Antioxidant Syrup', cat: 'Nutritional Supplement', form: 'Syrup', ico: '&#11088;', img: 'nutridric-syp.jpg' },
     { name: 'Nutridric-SF', comp: 'Protein Powder with DHA, Multivitamins & Multiminerals (Sugar Free)', cat: 'Nutraceutical', form: 'Powder', ico: '&#11088;', img: 'nutridric-sf.jpg' },
@@ -554,8 +517,8 @@ var products = {
   ]
 };
 
-var activeCat = { pharma: 'All', ayurvedic: 'All', nutraceutical: 'All', paediatric: 'All', surgical: 'All', ortho: 'All' };
-var activeSearch = { pharma: '', ayurvedic: '', nutraceutical: '', paediatric: '', surgical: '', ortho: '' };
+var activeCat = { pharma: 'All', paediatric: 'All', surgical: 'All', ortho: 'All' };
+var activeSearch = { pharma: '', paediatric: '', surgical: '', ortho: '' };
 var _lastFiltered = [];
 
 function renderProducts(seg) {

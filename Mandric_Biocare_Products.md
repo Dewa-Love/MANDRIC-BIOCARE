@@ -318,4 +318,37 @@
 
 ---
 
+## 26. NASODRIC — Saline Nasal Drops
+**Form:** Nasal Drops | **Pack:** 10 ml
+**Composition:** Saline nasal formulation
+**Category:** Respiratory (Pediatric)
+**Key Benefits:**
+- Clears nasal congestion & blockages
+- Gentle saline solution safe for infants & children
+- Restores nasal moisture & relieves dryness
+
+---
+
+## 27. XYLODRIC — Fast Relief Decongestant Drops
+**Form:** Nasal Drops | **Pack:** 10 ml
+**Composition:** Xylometazoline nasal drops
+**Category:** Cough & Cold (Pediatric)
+**Key Benefits:**
+- Fast relief from blocked nose
+- Long-lasting decongestant action
+- Reduces swelling of nasal passages for easier breathing
+
+---
+
+## 28. CALCIDRIC PLUS — High Potency Calcium Formulation
+**Form:** Tablet | **Pack:** 30 Tablets
+**Composition:** Calcium 500 mg + Vitamin D3 1000 IU + Magnesium 50 mg
+**Category:** Bone Health (Orthopedic)
+**Key Benefits:**
+- High potency calcium for bone strength
+- Enriched with Vitamin D3 for maximum calcium absorption
+- Magnesium supports optimal bone density
+
+---
+
 *Mandric Biocare Pvt. Ltd. | www.mandric.com*
